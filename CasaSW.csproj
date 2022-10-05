@@ -234,6 +234,7 @@
     <Content Include="Views\PERSONAs\Details.cshtml" />
     <Content Include="Views\PERSONAs\Edit.cshtml" />
     <Content Include="Views\PERSONAs\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
