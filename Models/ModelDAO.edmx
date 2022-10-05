@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CASASWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.ADMIN_MARKETING' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ADMIN_MARKETING">
+          <Property Name="id_persona" Type="int" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.ADMIN_SUPER' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ADMIN_SUPER">
+          <Property Name="id_persona" Type="int" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.CUSTOMER_FB' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="CUSTOMER_FB">
+          <Key>
+            <PropertyRef Name="fdbDate" />
+            <PropertyRef Name="rating" />
+          </Key>
+          <Property Name="id_persona" Type="int" />
+          <Property Name="fdbDate" Type="date" Nullable="false" />
+          <Property Name="rating" Type="int" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" />
+          <Property Name="orderName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="subtotal" Type="float" Nullable="false" />
+          <Property Name="total" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="version" Type="varchar" MaxLength="30" />
+          <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.PRODUCT_FB' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="PRODUCT_FB">
+          <Key>
+            <PropertyRef Name="fdbDate" />
+            <PropertyRef Name="rating" />
+          </Key>
+          <Property Name="id_product" Type="int" />
+          <Property Name="fdbDate" Type="date" Nullable="false" />
+          <Property Name="rating" Type="int" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.SW_REQUEST' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="SW_REQUEST">
+          <Key>
+            <PropertyRef Name="specifiations" />
+          </Key>
+          <Property Name="id_persona" Type="int" />
+          <Property Name="specifiations" Type="varchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.USER' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="denied" />
+            <PropertyRef Name="phoneN" />
+            <PropertyRef Name="signUpDate" />
+          </Key>
+          <Property Name="id_persona" Type="int" />
+          <Property Name="denied" Type="int" Nullable="false" />
+          <Property Name="phoneN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="signUpDate" Type="date" Nullable="false" />
+          <Property Name="adminFB" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.ADMIN_MARKETING', pero no se encuentra la tabla.
+        <Association Name="fk_persona_adminM_id" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CASASW\APP_DATA\CASASW.MDF.dbo.ADMIN_SUPER', pero no se encuentra la tabla.
+        <Association Name="fk_persona_adminS_id" />-->
+        <Association Name="fk_persona_customerfb_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="CUSTOMER_FB" Type="Self.CUSTOMER_FB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="CUSTOMER_FB">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_order">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_product_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_swrequest_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="SW_REQUEST">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_user_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_productfb_id">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="PRODUCT_FB" Type="Self.PRODUCT_FB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="PRODUCT_FB">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CASASWModelStoreContainer">
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_FB" EntityType="Self.CUSTOMER_FB" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CUSTOMER_FB].[id_persona] AS [id_persona], 
+    [CUSTOMER_FB].[fdbDate] AS [fdbDate], 
+    [CUSTOMER_FB].[rating] AS [rating], 
+    [CUSTOMER_FB].[comment] AS [comment]
+    FROM [dbo].[CUSTOMER_FB] AS [CUSTOMER_FB]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PRODUCT_FB" EntityType="Self.PRODUCT_FB" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PRODUCT_FB].[id_product] AS [id_product], 
+    [PRODUCT_FB].[fdbDate] AS [fdbDate], 
+    [PRODUCT_FB].[rating] AS [rating], 
+    [PRODUCT_FB].[comment] AS [comment]
+    FROM [dbo].[PRODUCT_FB] AS [PRODUCT_FB]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SW_REQUEST" EntityType="Self.SW_REQUEST" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SW_REQUEST].[id_persona] AS [id_persona], 
+    [SW_REQUEST].[specifiations] AS [specifiations]
+    FROM [dbo].[SW_REQUEST] AS [SW_REQUEST]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USER" EntityType="Self.USER" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [USER].[id_persona] AS [id_persona], 
+    [USER].[denied] AS [denied], 
+    [USER].[phoneN] AS [phoneN], 
+    [USER].[signUpDate] AS [signUpDate], 
+    [USER].[adminFB] AS [adminFB]
+    FROM [dbo].[USER] AS [USER]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_persona_customerfb_id" Association="Self.fk_persona_customerfb_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CUSTOMER_FB" EntitySet="CUSTOMER_FB" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_order" Association="Self.fk_persona_order">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="ORDER" EntitySet="ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_product_id" Association="Self.fk_persona_product_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_swrequest_id" Association="Self.fk_persona_swrequest_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SW_REQUEST" EntitySet="SW_REQUEST" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_user_id" Association="Self.fk_persona_user_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_productfb_id" Association="Self.fk_product_productfb_id">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="PRODUCT_FB" EntitySet="PRODUCT_FB" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CASASWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="orderName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subtotal" Type="Double" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_order" FromRole="ORDER" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ORDER" Relationship="Self.fk_persona_order" FromRole="PERSONA" ToRole="ORDER" />
+          <NavigationProperty Name="CUSTOMER_FB" Relationship="Self.fk_persona_customerfb_id" FromRole="PERSONA" ToRole="CUSTOMER_FB" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.fk_persona_product_id" FromRole="PERSONA" ToRole="PRODUCT" />
+          <NavigationProperty Name="SW_REQUEST" Relationship="Self.fk_persona_swrequest_id" FromRole="PERSONA" ToRole="SW_REQUEST" />
+          <NavigationProperty Name="USER" Relationship="Self.fk_persona_user_id" FromRole="PERSONA" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="version" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_product_id" FromRole="PRODUCT" ToRole="PERSONA" />
+          <NavigationProperty Name="PRODUCT_FB" Relationship="Self.fk_product_productfb_id" FromRole="PRODUCT" ToRole="PRODUCT_FB" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_FB">
+          <Key>
+            <PropertyRef Name="fdbDate" />
+            <PropertyRef Name="rating" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="fdbDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rating" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_customerfb_id" FromRole="CUSTOMER_FB" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="PRODUCT_FB">
+          <Key>
+            <PropertyRef Name="fdbDate" />
+            <PropertyRef Name="rating" />
+          </Key>
+          <Property Name="id_product" Type="Int32" />
+          <Property Name="fdbDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rating" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.fk_product_productfb_id" FromRole="PRODUCT_FB" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="SW_REQUEST">
+          <Key>
+            <PropertyRef Name="specifiations" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="specifiations" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_swrequest_id" FromRole="SW_REQUEST" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="denied" />
+            <PropertyRef Name="phoneN" />
+            <PropertyRef Name="signUpDate" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="denied" Type="Int32" Nullable="false" />
+          <Property Name="phoneN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="signUpDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="adminFB" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_user_id" FromRole="USER" ToRole="PERSONA" />
+        </EntityType>
+        <Association Name="fk_persona_order">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_customerfb_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="CUSTOMER_FB" Type="Self.CUSTOMER_FB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="CUSTOMER_FB">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_product_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_swrequest_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="SW_REQUEST">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_user_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_productfb_id">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="PRODUCT_FB" Type="Self.PRODUCT_FB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="PRODUCT_FB">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CASASWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" />
+          <EntitySet Name="CUSTOMER_FB" EntityType="Self.CUSTOMER_FB" />
+          <EntitySet Name="PRODUCT_FB" EntityType="Self.PRODUCT_FB" />
+          <EntitySet Name="SW_REQUEST" EntityType="Self.SW_REQUEST" />
+          <EntitySet Name="USER" EntityType="Self.USER" />
+          <AssociationSet Name="fk_persona_order" Association="Self.fk_persona_order">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="ORDER" EntitySet="ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_customerfb_id" Association="Self.fk_persona_customerfb_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="CUSTOMER_FB" EntitySet="CUSTOMER_FB" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_product_id" Association="Self.fk_persona_product_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_swrequest_id" Association="Self.fk_persona_swrequest_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="SW_REQUEST" EntitySet="SW_REQUEST" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_user_id" Association="Self.fk_persona_user_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_productfb_id" Association="Self.fk_product_productfb_id">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="PRODUCT_FB" EntitySet="PRODUCT_FB" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CASASWModelStoreContainer" CdmEntityContainer="CASASWEntities">
+          <EntitySetMapping Name="ORDER">
+            <EntityTypeMapping TypeName="CASASWModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDER">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="orderName" ColumnName="orderName" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="CASASWModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT">
+            <EntityTypeMapping TypeName="CASASWModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_FB">
+            <EntityTypeMapping TypeName="CASASWModel.CUSTOMER_FB">
+              <MappingFragment StoreEntitySet="CUSTOMER_FB">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="fdbDate" ColumnName="fdbDate" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_FB">
+            <EntityTypeMapping TypeName="CASASWModel.PRODUCT_FB">
+              <MappingFragment StoreEntitySet="PRODUCT_FB">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="fdbDate" ColumnName="fdbDate" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SW_REQUEST">
+            <EntityTypeMapping TypeName="CASASWModel.SW_REQUEST">
+              <MappingFragment StoreEntitySet="SW_REQUEST">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="specifiations" ColumnName="specifiations" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER">
+            <EntityTypeMapping TypeName="CASASWModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="denied" ColumnName="denied" />
+                <ScalarProperty Name="phoneN" ColumnName="phoneN" />
+                <ScalarProperty Name="signUpDate" ColumnName="signUpDate" />
+                <ScalarProperty Name="adminFB" ColumnName="adminFB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

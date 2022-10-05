@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/normalize.css"/>
     <link rel="stylesheet" href="~/Content/stylesheet.css"/>
-    @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
     <header>
@@ -52,15 +51,6 @@
             </div>
         </div>
     </header>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-
-    @*<footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-      </footer>*@
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)*@
+    @RenderBody()    
 </body>
 </html>
