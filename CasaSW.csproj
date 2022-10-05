@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ACCESOsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PERSONAsController.cs" />
     <Compile Include="Controllers\USERsController.cs" />
@@ -171,6 +172,8 @@
     <Compile Include="Models\USER.cs">
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +181,7 @@
     <Content Include="App_Data\CASASW_log.ldf">
       <DependentUpon>CASASW.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Login.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\Index_Person.css" />
     <Content Include="Content\normalize.css" />
@@ -234,7 +238,8 @@
     <Content Include="Views\PERSONAs\Details.cshtml" />
     <Content Include="Views\PERSONAs\Edit.cshtml" />
     <Content Include="Views\PERSONAs\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\ACCESOs\Login.cshtml" />
+    <Content Include="Views\ACCESOs\Registrar.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
