@@ -11,10 +11,6 @@ namespace CasaSW.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-        public ActionResult Customers()
-        {
-            return View();
-        }
+        }        
     }
 }

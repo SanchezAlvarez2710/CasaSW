@@ -1,0 +1,91 @@
+﻿.form {
+    padding: 15rem 0 0 2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.form a{
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.form a:hover{
+    color: var(--secundary);
+}
+
+.header{
+    background-color: var(--secundary);
+}
+
+    .header th {
+        padding: 1rem 5rem;       
+    }
+
+.tbl-body {
+    background-color: var(--primary);
+    color: var(--secundary);
+}
+
+    .tbl-body td {
+        padding: 1rem 1rem;        
+    }
+
+    .tbl-body td a{
+        color: var(--secundary);
+    }
+
+    
+
+.guide {
+    color: var(--secundary);
+    float: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .guide a {
+        color: var(--primary);
+    }
+
+        .guide a:hover {
+            color: var(--secundary);
+        }
+
+/* Media Queries*/
+@media (min-width: 500px) {
+}
+
+@media (min-width: 630px) {
+}
+
+@media (min-width: 790px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1082px) {
+    .guide {
+        margin: 8rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1148px) {
+    .guide {
+        margin: 9rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .guide {
+        margin: 10rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .guide {
+        margin: 11rem 0 2rem 2rem;
+    }
+}
