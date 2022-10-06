@@ -9,15 +9,14 @@ using System.Web.Mvc;
 using CasaSW.Models;
 using System.Data.SqlClient;
 using System.Data;
-
+using Microsoft.Ajax.Utilities;
 
 namespace CasaSW.Controllers
 {
     public class ACCESOsController : Controller
     {
         static string cadena = "Data Source=(local);Initial Catalog=DB_ACCESO;Integrated Security=true";
-
-
+        private CASASWEntities db = new CASASWEntities();
 
         // GET: ACCESOs
         public ActionResult Login()
@@ -79,19 +78,13 @@ namespace CasaSW.Controllers
         public ActionResult Login(Usuario oUsuario)
         {
             oUsuario.Password = ConvertirSha256(oUsuario.Password);
-
-            using (SqlConnection cn = new SqlConnection(cadena))
+            
             {
-
-                SqlCommand cmd = new SqlCommand("sp_ValidarUsuario", cn);
-                cmd.Parameters.AddWithValue("Username", oUsuario.Username);
-                cmd.Parameters.AddWithValue("Password", oUsuario.Password);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cn.Open();
-
-                oUsuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-
+                var confirmPersona = db.PERSONA.SqlQuery("SELECT * FROM PERSONA WHERE (username=", oUsuario.Username, " AND password=", oUsuario.Password, ")").Single();             
+                if(confirmPersona != null)
+                {
+                    oUsuario.IdUsuario = 1;
+                } 
             }
 
             if (oUsuario.IdUsuario != 0)

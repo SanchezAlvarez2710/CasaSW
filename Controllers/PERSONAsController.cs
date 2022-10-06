@@ -11,7 +11,7 @@ using CasaSW.Models;
 using CasaSW.Permisos;
 namespace CasaSW.Controllers
 {
-    //[ValidarSesion]
+    [ValidarSesion]
     public class PERSONAsController : Controller
     {
         private CASASWEntities db = new CASASWEntities();
@@ -20,19 +20,20 @@ namespace CasaSW.Controllers
         public ActionResult Index()
         {
             //return View(db.PERSONA.ToList());
-            var UserPersona = from p in db.PERSONA
-                              join u in db.USER on p.id_persona equals u.id_persona
-                              select new UserPersona {
-                                  Id_ = p.id_persona,
-                                  Username_ = p.username,
-                                  Password_ = p.password,
-                                  Name_ = p.name,
-                                  Email_ = p.email,
-                                  Denied_ = u.denied,
-                                  PhoneN_ = u.phoneN,
-                                  signUpDate_ = u.signUpDate,
-                                  AdminFB_ = u.adminFB
-                              };            
+                var UserPersona = from p in db.PERSONA
+                                  join u in db.USER on p.id_persona equals u.id_persona
+                                  select new UserPersona {
+                                      Id_ = p.id_persona,
+                                      Username_ = p.username,
+                                      Password_ = p.password,
+                                      Name_ = p.name,
+                                      Email_ = p.email,
+                                      Denied_ = u.denied,
+                                      PhoneN_ = u.phoneN,
+                                      signUpDate_ = u.signUpDate,
+                                      AdminFB_ = u.adminFB
+                                  };
+            
             return View(UserPersona);
         }
 

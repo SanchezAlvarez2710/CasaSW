@@ -172,7 +172,7 @@
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\UserPersona.cs" />
-    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\ViewModel\Usuario.cs" />
     <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
