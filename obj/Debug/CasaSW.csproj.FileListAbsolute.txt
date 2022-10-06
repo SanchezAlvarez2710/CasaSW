@@ -264,3 +264,7 @@ F:\DATA MILLER\Documentos\U\Semestre 6\Proyecto de construcción de SW\CasaSW\ob
 F:\DATA MILLER\Documentos\U\Semestre 6\Proyecto de construcción de SW\CasaSW\obj\Debug\CasaSW.csproj.CopyComplete
 F:\DATA MILLER\Documentos\U\Semestre 6\Proyecto de construcción de SW\CasaSW\obj\Debug\CasaSW.dll
 F:\DATA MILLER\Documentos\U\Semestre 6\Proyecto de construcción de SW\CasaSW\obj\Debug\CasaSW.pdb
+D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CasaSW\bin\EntityFramework.dll
+D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CasaSW\bin\EntityFramework.SqlServer.dll
+D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CasaSW\bin\EntityFramework.xml
+D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CasaSW\bin\EntityFramework.SqlServer.xml
