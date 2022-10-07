@@ -10,6 +10,7 @@ using CasaSW.Models;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.Ajax.Utilities;
+using System.Runtime.CompilerServices;
 
 namespace CasaSW.Controllers
 {
@@ -77,19 +78,18 @@ namespace CasaSW.Controllers
         [HttpPost]
         public ActionResult Login(Usuario oUsuario)
         {
-            oUsuario.Password = ConvertirSha256(oUsuario.Password);
-            
-            {
-                var confirmPersona = db.PERSONA.SqlQuery("SELECT * FROM PERSONA WHERE (username=", oUsuario.Username, " AND password=", oUsuario.Password, ")").Single();             
-                if(confirmPersona != null)
-                {
-                    oUsuario.IdUsuario = 1;
-                } 
-            }
+            oUsuario.Password = ConvertirSha256(oUsuario.Password);                      
+                //var confirmPersona = db.PERSONA.Select(x => x.username == oUsuario.Username).Where(z => z.username == oUsuario.Username).FirstOrDefault();
+                //Console.WriteLine(confirmPersona);
+                //if (confirmPersona != false)
+                //{
+                //    oUsuario.IdUsuario = 1;
+                //}
+
 
             if (oUsuario.IdUsuario != 0)
             {
-
+                
                 Session["usuario"] = oUsuario;
                 return RedirectToAction("Index", "Home");
             }
@@ -97,8 +97,7 @@ namespace CasaSW.Controllers
             {
                 ViewData["Mensaje"] = "usuario no encontrado";
                 return View();
-            }
-            
+            }            
         }
 
         public static string ConvertirSha256(string texto)

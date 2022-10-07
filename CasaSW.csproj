@@ -183,7 +183,7 @@
     </Content>
     <Content Include="Content\Login.css" />
     <Content Include="Content\index.css" />
-    <Content Include="Content\Index_Person.css" />
+    <Content Include="Content\index_customers.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\stylesheet.css" />
     <Content Include="favicon.ico" />

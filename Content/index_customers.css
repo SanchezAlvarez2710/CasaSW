@@ -1,0 +1,134 @@
+﻿
+.form {
+    padding: 15rem 2rem 0 2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form a{
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.form a:hover{
+    color: var(--secundary);
+}
+
+.scrl-tb {
+    overflow-y: scroll;
+    max-height: 55rem;
+    /*float: left; */
+}
+.table {
+    font-size: 2rem;
+    width: 100%;
+    
+}
+.header{
+    background-color: var(--secundary);    
+}
+
+    .header th {
+        padding: 1rem 7rem;       
+    }
+
+.tbl-body {
+    background-color: var(--primary);
+    color: var(--secundary);
+}
+
+    .tbl-body td {
+        padding: 1rem 1rem;        
+    }
+
+    .tbl-body td a{
+        padding: .7rem 1rem;
+    }
+    .actions{
+       display: flex;
+       grid-template-columns: repeat(33.3%, 3);
+       gap: 1rem;
+       justify-content: space-evenly;
+    }
+
+    .actions a:nth-child(1){
+        color: var(--primary);
+        background-color: var(--secundary);
+        width: 8rem;
+        text-align: center;
+    }
+        .actions a:nth-child(1):hover {
+            background-color: #b3b3b3;
+        }
+
+        .actions a:nth-child(2) {
+            color: var(--primary);
+            background-color: var(--dark);
+        }
+
+            .actions a:nth-child(2):hover {
+                background-color: #2e3141;
+            }
+
+        .actions a:nth-child(3) {
+            color: var(--primary);
+            background-color: var(--cancel);
+        }
+
+            .actions a:nth-child(3):hover {
+                background-color: #e9a5a5;
+            }
+
+.guide {
+    color: var(--secundary);
+    float: left;
+}
+
+    .guide a {
+        color: var(--primary);
+    }
+
+        .guide a:hover {
+            color: var(--secundary);
+        }
+
+/* Media Queries*/
+@media (min-width: 500px) {
+}
+
+@media (min-width: 630px) {
+}
+
+@media (min-width: 790px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1082px) {
+    .guide {
+        margin: 8rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1148px) {
+    .guide {
+        margin: 9rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .guide {
+        margin: 10rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .guide {
+        margin: 11rem 0 2rem 2rem;
+    }
+}

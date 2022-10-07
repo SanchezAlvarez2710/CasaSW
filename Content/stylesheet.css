@@ -144,19 +144,19 @@ main {
 /* Media Queries*/
 @media (min-width: 500px) {
     .nav-tl {
-        grid-template-columns: 12% 48% 40%;
+        grid-template-columns: 16% 44% 40%;
     }
 }
 
 @media (min-width: 630px) {
     .nav-tl {
-        grid-template-columns: 10% 50% 40%;
+        grid-template-columns: 14% 46% 40%;
     }
 }
 
 @media (min-width: 790px) {
     .nav-tl {
-        grid-template-columns: 8% 52% 40%;
+        grid-template-columns: 12% 48% 40%;
     }
 }
 

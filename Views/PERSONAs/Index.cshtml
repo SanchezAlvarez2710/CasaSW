@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="~/Content/Index_Person.css" />
+<link rel="stylesheet" href="~/Content/index_customers.css" />
 
 <p class="guide">
     You are at > @Html.ActionLink("Home", "Index", "Home") > @Html.ActionLink("Customers", "Index", "PERSONAs")
@@ -16,40 +16,42 @@
     <p>
         @Html.ActionLink("Create New User", "Create")
     </p>
-    <table class="table">
-        <tr class="header">
-            <th>
-                Id
-            </th>
-            <th>
-                Username
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr class="tbl-body">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id_)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Username_)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name_)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id_}) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id_}) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id_})
-                </td>
+    <div class="scrl-tb">
+        <table class="table">
+            <tr class="header">
+                <th>
+                    DNI
+                </th>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Actions
+                </th>
             </tr>
-        }
-    </table>
-</div>"
+
+            @foreach (var item in Model)
+            {
+                <tr class="tbl-body">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id_)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username_)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name_)
+                    </td>
+                    <td class="actions">
+                        @Html.ActionLink("Orders", "Orders", new { id = item.Id_ })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id_ })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id_ })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
