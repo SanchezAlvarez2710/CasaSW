@@ -8,6 +8,7 @@ namespace CasaSW.Models.ViewModel
     public class OrderProduct
     {
         public int id_persona_ { get; set; } = 0;
+        public string username_persona { get; set; }
         public int id_order_ { get; set; } = 0;
         public string orderName_ { get; set; }        
         public string state_ { get; set; }

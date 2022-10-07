@@ -74,7 +74,7 @@
     }
 
         .actions a:nth-child(2):hover {
-            background-color: #2e3141;
+            background-color: #35384d;
         }
 
     .actions a:nth-child(3) {
@@ -100,59 +100,6 @@
             color: var(--secundary);
         }
 /*END GENERAL STYLES*/
-/*ORDERS*/
-.container {
-    padding: 15rem 2rem 0 2rem;
-}
-
-.order-layout {
-    background-color: var(--primary);
-    width: 100%;
-}
-
-.order-section {
-    padding: 2rem;
-}
-
-.order-info {
-    display: grid;
-    grid-template-columns: repeat(50%, 2);
-    padding: 0 0 0 2rem;
-    text-transform: uppercase;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(237,237,237,1)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, var(--secundary) 100%);
-    border-radius: 5px;
-}
-
-    .order-info p:nth-last-child(1) {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-.end-order {
-    color: var(--primary);
-    text-decoration: none;
-    text-align: center;
-    background-color: var(--success);
-}
-
-.end-order:hover{
-    background-color: #b4ffb2;
-}
-
-hr {
-    border-top: 1px solid red;
-    border-style: solid;
-    margin: 1rem 0 0 0;
-    border-color: var(--secundary);
-}
-/*END ORDER STYLES*/
 /* Media Queries*/
 @media (min-width: 500px) {
 }

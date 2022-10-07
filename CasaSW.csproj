@@ -189,6 +189,7 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\customers.css" />
     <Content Include="Content\normalize.css" />
+    <Content Include="Content\orders.css" />
     <Content Include="Content\stylesheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

@@ -41,22 +41,25 @@ namespace CasaSW.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var pERSONA = db.PERSONA.Find(id);
             var OrderProduct = from o in db.ORDER
-                                  join p in db.PRODUCT on o.id_product equals p.id_product
-                                  where o.id_persona == id
-                                  select new OrderProduct {
-                                      id_persona_ = (int)p.id_persona,
-                                      id_order_ = o.id_order,
-                                      orderName_ = o.orderName,
-                                      state_ = o.state,
-                                      subtotal_ = o.subtotal,
-                                      total_ = o.total,
-                                      id_product_ = p.id_product,
-                                      product_name = p.name,
-                                      product_type = p.type,
-                                      product_version = p.version,
-                                      product_description = p.description
-                                  };
+                               join p in db.PRODUCT on o.id_product equals p.id_product
+                               where o.id_persona == id
+                               select new OrderProduct
+                               {
+                                   id_persona_ = (int)p.id_persona,
+                                   username_persona = pERSONA.username,
+                                   id_order_ = o.id_order,
+                                   orderName_ = o.orderName,
+                                   state_ = o.state,
+                                   subtotal_ = o.subtotal,
+                                   total_ = o.total,
+                                   id_product_ = p.id_product,
+                                   product_name = p.name,
+                                   product_type = p.type,
+                                   product_version = p.version,
+                                   product_description = p.description
+                               };
             if (OrderProduct == null)
             {
                 return HttpNotFound();
