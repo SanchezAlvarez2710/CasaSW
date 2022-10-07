@@ -18,6 +18,7 @@ namespace CasaSW.Models
         public PERSONA()
         {
             this.ORDER = new HashSet<ORDER>();
+            this.ADMIN = new HashSet<ADMIN>();
             this.CUSTOMER_FB = new HashSet<CUSTOMER_FB>();
             this.PRODUCT = new HashSet<PRODUCT>();
             this.SW_REQUEST = new HashSet<SW_REQUEST>();
@@ -32,6 +33,8 @@ namespace CasaSW.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ADMIN> ADMIN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CUSTOMER_FB> CUSTOMER_FB { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

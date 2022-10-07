@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CasaSW.Models.UserPersona>
+﻿@model IEnumerable<CasaSW.Models.ViewModel.CustomerPersona>
 
 @{
     ViewBag.Title = "Customers Management";
@@ -6,19 +6,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="~/Content/index_customers.css" />
+<link rel="stylesheet" href="~/Content/customers.css" />
 
 <p class="guide">
-    You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index", "CUSTOMERS")
+    You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index")
 </p>
 <div class="form">
     <p>
         @Html.ActionLink("Create New User", "Create")
-        @Html.ActionLink("hola", "Index", "HOME")
     </p>
     <div class="scrl-tb">
         <table class="table">
-            <tr class="header">
+            <tr class="tbl-header">
                 <th>
                     DNI
                 </th>

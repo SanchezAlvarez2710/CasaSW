@@ -5,12 +5,14 @@
       <PropertyRef Name="id_order" />
     </Key>
     <Property Name="id_order" Type="Int32" Nullable="false" />
+    <Property Name="id_product" Type="Int32" />
     <Property Name="id_persona" Type="Int32" />
     <Property Name="orderName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="subtotal" Type="Double" Nullable="false" />
     <Property Name="total" Type="Double" Nullable="false" />
     <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_order" FromRole="ORDER" ToRole="PERSONA" />
+    <NavigationProperty Name="PRODUCT" Relationship="Self.fk_product_order" FromRole="ORDER" ToRole="PRODUCT" />
   </EntityType>
   <EntityType Name="PERSONA">
     <Key>
@@ -22,6 +24,7 @@
     <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="ORDER" Relationship="Self.fk_persona_order" FromRole="PERSONA" ToRole="ORDER" />
+    <NavigationProperty Name="ADMIN" Relationship="Self.fk_persona_admin_id" FromRole="PERSONA" ToRole="ADMIN" />
     <NavigationProperty Name="CUSTOMER_FB" Relationship="Self.fk_persona_customerfb_id" FromRole="PERSONA" ToRole="CUSTOMER_FB" />
     <NavigationProperty Name="PRODUCT" Relationship="Self.fk_persona_product_id" FromRole="PERSONA" ToRole="PRODUCT" />
     <NavigationProperty Name="SW_REQUEST" Relationship="Self.fk_persona_swrequest_id" FromRole="PERSONA" ToRole="SW_REQUEST" />
@@ -35,11 +38,19 @@
     <Property Name="id_persona" Type="Int32" />
     <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="price" Type="Double" Nullable="false" />
     <Property Name="version" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ORDER" Relationship="Self.fk_product_order" FromRole="PRODUCT" ToRole="ORDER" />
     <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_product_id" FromRole="PRODUCT" ToRole="PERSONA" />
     <NavigationProperty Name="PRODUCT_FB" Relationship="Self.fk_product_productfb_id" FromRole="PRODUCT" ToRole="PRODUCT_FB" />
+  </EntityType>
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="rol" />
+    </Key>
+    <Property Name="id_persona" Type="Int32" />
+    <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_admin_id" FromRole="ADMIN" ToRole="PERSONA" />
   </EntityType>
   <EntityType Name="CUSTOMER_FB">
     <Key>
@@ -92,6 +103,30 @@
         <PropertyRef Name="id_persona" />
       </Principal>
       <Dependent Role="ORDER">
+        <PropertyRef Name="id_persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_product_order">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_persona_admin_id">
+    <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+    <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="id_persona" />
+      </Principal>
+      <Dependent Role="ADMIN">
         <PropertyRef Name="id_persona" />
       </Dependent>
     </ReferentialConstraint>
@@ -160,6 +195,7 @@
     <EntitySet Name="ORDER" EntityType="Self.ORDER" />
     <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
     <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" />
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" />
     <EntitySet Name="CUSTOMER_FB" EntityType="Self.CUSTOMER_FB" />
     <EntitySet Name="PRODUCT_FB" EntityType="Self.PRODUCT_FB" />
     <EntitySet Name="SW_REQUEST" EntityType="Self.SW_REQUEST" />
@@ -167,6 +203,14 @@
     <AssociationSet Name="fk_persona_order" Association="Self.fk_persona_order">
       <End Role="PERSONA" EntitySet="PERSONA" />
       <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="fk_product_order" Association="Self.fk_product_order">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="fk_persona_admin_id" Association="Self.fk_persona_admin_id">
+      <End Role="PERSONA" EntitySet="PERSONA" />
+      <End Role="ADMIN" EntitySet="ADMIN" />
     </AssociationSet>
     <AssociationSet Name="fk_persona_customerfb_id" Association="Self.fk_persona_customerfb_id">
       <End Role="PERSONA" EntitySet="PERSONA" />

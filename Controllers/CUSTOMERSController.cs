@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using CasaSW.Models.ViewModel;
 using CasaSW.Models;
 using CasaSW.Permisos;
+using System.Collections.Generic;
+
 namespace CasaSW.Controllers
 {
     //[ValidarSesion]
@@ -16,13 +15,12 @@ namespace CasaSW.Controllers
     {
         private CASASWEntities db = new CASASWEntities();
 
-        // GET: PERSONAs
+        // GET: USERS
         public ActionResult Index()
         {
-            //return View(db.PERSONA.ToList());
-                var UserPersona = from p in db.PERSONA
+            var CustomerPersona = from p in db.PERSONA
                                   join u in db.USER on p.id_persona equals u.id_persona
-                                  select new UserPersona {
+                                  select new CustomerPersona {
                                       Id_ = p.id_persona,
                                       Username_ = p.username,
                                       Password_ = p.password,
@@ -34,9 +32,37 @@ namespace CasaSW.Controllers
                                       AdminFB_ = u.adminFB
                                   };
             
-            return View(UserPersona);
+            return View(CustomerPersona);
         }
 
+        public ActionResult Orders(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var OrderProduct = from o in db.ORDER
+                                  join p in db.PRODUCT on o.id_product equals p.id_product
+                                  where o.id_persona == id
+                                  select new OrderProduct {
+                                      id_persona_ = (int)p.id_persona,
+                                      id_order_ = o.id_order,
+                                      orderName_ = o.orderName,
+                                      state_ = o.state,
+                                      subtotal_ = o.subtotal,
+                                      total_ = o.total,
+                                      id_product_ = p.id_product,
+                                      product_name = p.name,
+                                      product_type = p.type,
+                                      product_version = p.version,
+                                      product_description = p.description
+                                  };
+            if (OrderProduct == null)
+            {
+                return HttpNotFound();
+            }
+            return View(OrderProduct);
+        }
         // GET: PERSONAs/Details/5
         public ActionResult Details(int? id)
         {

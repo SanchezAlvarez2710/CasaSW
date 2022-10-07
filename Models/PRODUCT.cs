@@ -17,6 +17,7 @@ namespace CasaSW.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCT()
         {
+            this.ORDER = new HashSet<ORDER>();
             this.PRODUCT_FB = new HashSet<PRODUCT_FB>();
         }
     
@@ -24,10 +25,11 @@ namespace CasaSW.Models
         public Nullable<int> id_persona { get; set; }
         public string name { get; set; }
         public string type { get; set; }
-        public double price { get; set; }
         public string version { get; set; }
         public string description { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ORDER> ORDER { get; set; }
         public virtual PERSONA PERSONA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_FB> PRODUCT_FB { get; set; }

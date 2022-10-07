@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CasaSW.Models.ViewModel.OrderProduct>
+
+@{
+    ViewBag.Title = "Customer Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Guide = "Orders";
+}
+
+<link rel="stylesheet" href="~/Content/customers.css" />
+
+
+<p class="guide">
+    You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index") > @Html.ActionLink("Orders", "Orders")
+</p>
+<div class="container">
+    <div class="order-layout">
+        @foreach (var item in Model)
+        {
+            <div class="order-section">
+                <div class="order-info">
+                    <p>
+                        Order id: @Html.DisplayFor(modelItem => item.id_order_)
+                    </p>
+                    <p>
+                        Order name: @Html.DisplayFor(modelItem => item.orderName_)
+                    </p>
+                    <p>
+                        Order state: @Html.DisplayFor(modelItem => item.state_)
+                    </p>
+                    <p>
+                        @* dropdown menu *@
+                    </p>
+                    <p>
+                        @Html.ActionLink("Finish", "Finish", new { id = item.id_order_ }, new {@class = "end-order"})
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+</div>

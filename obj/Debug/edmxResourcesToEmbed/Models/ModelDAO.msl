@@ -5,6 +5,7 @@
       <EntityTypeMapping TypeName="CASASWModel.ORDER">
         <MappingFragment StoreEntitySet="ORDER">
           <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
           <ScalarProperty Name="orderName" ColumnName="orderName" />
           <ScalarProperty Name="state" ColumnName="state" />
@@ -31,9 +32,16 @@
           <ScalarProperty Name="id_persona" ColumnName="id_persona" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADMIN">
+      <EntityTypeMapping TypeName="CASASWModel.ADMIN">
+        <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

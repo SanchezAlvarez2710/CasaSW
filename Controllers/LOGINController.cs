@@ -31,7 +31,7 @@ namespace CasaSW.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registrar(UsuarioAdmin oUsuario)
+        public ActionResult Registrar(UserAdmin oUsuario)
         {
             bool registrado;
             string mensaje;
@@ -76,7 +76,7 @@ namespace CasaSW.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(UsuarioAdmin oUsuario)
+        public ActionResult Login(UserAdmin oUsuario)
         {
             oUsuario.Password = ConvertirSha256(oUsuario.Password);                      
                 //var confirmPersona = db.PERSONA.Select(x => x.username == oUsuario.Username).Where(z => z.username == oUsuario.Username).FirstOrDefault();

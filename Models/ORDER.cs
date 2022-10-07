@@ -15,6 +15,7 @@ namespace CasaSW.Models
     public partial class ORDER
     {
         public int id_order { get; set; }
+        public Nullable<int> id_product { get; set; }
         public Nullable<int> id_persona { get; set; }
         public string orderName { get; set; }
         public string state { get; set; }
@@ -22,5 +23,6 @@ namespace CasaSW.Models
         public double total { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }
