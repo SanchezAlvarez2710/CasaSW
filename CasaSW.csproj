@@ -129,9 +129,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ACCESOsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PERSONAsController.cs" />
+    <Compile Include="Controllers\LOGINController.cs" />
+    <Compile Include="Controllers\HOMEController.cs" />
+    <Compile Include="Controllers\CUSTOMERSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,7 +172,7 @@
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\UserPersona.cs" />
-    <Compile Include="Models\ViewModel\Usuario.cs" />
+    <Compile Include="Models\ViewModel\UsuarioAdmin.cs" />
     <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,7 +181,7 @@
     <Content Include="App_Data\CASASW_log.ldf">
       <DependentUpon>CASASW.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\Login.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\index_customers.css" />
     <Content Include="Content\normalize.css" />
@@ -232,14 +232,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\PERSONAs\Create.cshtml" />
-    <Content Include="Views\PERSONAs\Delete.cshtml" />
-    <Content Include="Views\PERSONAs\Details.cshtml" />
-    <Content Include="Views\PERSONAs\Edit.cshtml" />
-    <Content Include="Views\PERSONAs\Index.cshtml" />
-    <Content Include="Views\ACCESOs\Login.cshtml" />
-    <Content Include="Views\ACCESOs\Registrar.cshtml" />
+    <Content Include="Views\HOME\Index.cshtml" />
+    <Content Include="Views\CUSTOMERS\Create.cshtml" />
+    <Content Include="Views\CUSTOMERS\Delete.cshtml" />
+    <Content Include="Views\CUSTOMERS\Edit.cshtml" />
+    <Content Include="Views\CUSTOMERS\Index.cshtml" />
+    <Content Include="Views\LOGIN\Login.cshtml" />
+    <Content Include="Views\LOGIN\Registrar.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

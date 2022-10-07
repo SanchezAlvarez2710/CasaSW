@@ -12,7 +12,7 @@ namespace CasaSW.Permisos
         {
             if (HttpContext.Current.Session["usuario"] == null)
             {
-                filterContext.Result = new RedirectResult("~/ACCESOs/Login");
+                filterContext.Result = new RedirectResult("~/LOGIN/Login");
             }
 
             base.OnActionExecuting(filterContext);

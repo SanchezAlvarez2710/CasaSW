@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CasaSW.Models.UserPersona>
+
+@{
+    ViewBag.Title = "Customers Management";
+    ViewBag.Guide = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/index_customers.css" />
+
+<p class="guide">
+    You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index", "CUSTOMERS")
+</p>
+<div class="form">
+    <p>
+        @Html.ActionLink("Create New User", "Create")
+        @Html.ActionLink("hola", "Index", "HOME")
+    </p>
+    <div class="scrl-tb">
+        <table class="table">
+            <tr class="header">
+                <th>
+                    DNI
+                </th>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr class="tbl-body">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id_)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username_)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name_)
+                    </td>
+                    <td class="actions">
+                        @Html.ActionLink("Orders", "Orders", new { id = item.Id_ })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id_ })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id_ })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
