@@ -15,26 +15,25 @@
     <p>
         @Html.ActionLink("Create New User", "Create")
     </p>
-    <div class="scrl-tb">
-        <table class="table">
-            <tr class="tbl-header">
-                <th>
-                    DNI
-                </th>
-                <th>
-                    Username
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Actions
-                </th>
-            </tr>
-
+    <table class="table">
+        <tr class="tbl-header">
+            <th>
+                DNI
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        <tbody class="tbl-body">
             @foreach (var item in Model)
             {
-                <tr class="tbl-body">
+                <tr class="tbl-body-content">
                     <td>
                         @Html.DisplayFor(modelItem => item.Id_)
                     </td>
@@ -51,6 +50,6 @@
                     </td>
                 </tr>
             }
-        </table>
-    </div>
+        </tbody>
+    </table>
 </div>

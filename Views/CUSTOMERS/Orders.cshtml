@@ -4,7 +4,7 @@
     ViewBag.Title = "Customer Orders";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Guide = "Orders";
-    var hd = 0;
+    var model = Model;
 }
 
 <link rel="stylesheet" href="~/Content/orders.css" />
@@ -14,26 +14,24 @@
     You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index") > @Html.ActionLink("Orders", "Orders")
 </p>
 <div class="container">
-    <div class="order-layout">
+    <div class="order-header">
+        <p>
+            View data for
+        </p>
+        <p>
+            { Id: @Html.DisplayFor(modelItem => model.ElementAt(0).id_persona_)
+        </p>
+        <p>
+            Username: @Html.DisplayFor(modelItem => model.ElementAt(0).username_persona) }
+        </p>
+    </div>
+    <div class="order-body">
         @foreach (var item in Model)
         {
-            if (hd == 0) { 
-                <div class="order-header">
-                    <p>
-                        View data for
-                    </p>
-                    <p>
-                        { Id: @Html.DisplayFor(modelItem => item.id_persona_)
-                    </p>
-                    <p>
-                        Username: @Html.DisplayFor(modelItem => item.username_persona) }
-                    </p>
-                </div>
-            }
             <div class="order-section">
                 <div class="order-info">
                     <script>
-                        //COLOR CHANGE ON "STATE" PRODUCT
+                                                                //COLOR CHANGE ON "STATE" PRODUCT
                     </script>
                     <p>
                         Order id: @Html.DisplayFor(modelItem => item.id_order_)
@@ -44,20 +42,36 @@
                     <p>
                         Order state: @Html.DisplayFor(modelItem => item.state_)
                     </p>
-                    <div class="product-info">
+                    <div class="product-section">
                         <p>
                             Product Info
                         </p>
-                        <label for="check-info-p">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1b1d28" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <circle cx="12" cy="12" r="9" />
-                                <line x1="8" y1="12" x2="12" y2="16" />
-                                <line x1="12" y1="8" x2="12" y2="16" />
-                                <line x1="16" y1="12" x2="12" y2="16" />
-                            </svg>
-                        </label>
-                        <input type="checkbox" id="check-info-p" />
+                        <div>
+                            <label for="check-info-p">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1b1d28" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="12" cy="12" r="9" />
+                                    <line x1="8" y1="12" x2="12" y2="16" />
+                                    <line x1="12" y1="8" x2="12" y2="16" />
+                                    <line x1="16" y1="12" x2="12" y2="16" />
+                                </svg>
+                            </label>
+                            <input type="checkbox" id="check-info-p" />
+                        </div>
+                        <div>
+                            <p>
+                                Product id: @Html.DisplayFor(modelItem => item.id_product_)
+                            </p>
+                            <p>
+                                Product name: @Html.DisplayFor(modelItem => item.product_name)
+                            </p>
+                            <p>
+                                Product type: @Html.DisplayFor(modelItem => item.product_type)
+                            </p>
+                            <p>
+                                Product version: @Html.DisplayFor(modelItem => item.id_product_)
+                            </p>
+                        </div>
                     </div>
                     <p>
                         @Html.ActionLink("Finish", "Finish", new { id = item.id_order_ }, new { @class = "end-order" })
@@ -65,7 +79,6 @@
                 </div>
             </div>
             <hr />
-            hd++;
         }
     </div>
 </div>

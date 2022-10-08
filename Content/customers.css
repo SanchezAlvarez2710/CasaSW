@@ -18,12 +18,6 @@
             color: var(--secundary);
         }
 
-.scrl-tb {
-    overflow-y: scroll;
-    max-height: 55rem;
-    /*float: left; */
-}
-
 .table {
     font-size: 2rem;
     width: 100%;
@@ -36,17 +30,20 @@
     .tbl-header th {
         padding: 1rem 7rem;
     }
+.tbl-body{
+    overflow-y: scroll;
 
-.tbl-body {
+}
+.tbl-body-content {
     background-color: var(--primary);
     color: var(--secundary);
 }
 
-    .tbl-body td {
+    .tbl-body-content td {
         padding: 1rem 1rem;
     }
 
-        .tbl-body td a {
+        .tbl-body-content td a {
             padding: .7rem 1rem;
         }
 
