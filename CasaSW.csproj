@@ -132,6 +132,7 @@
     <Compile Include="Controllers\LOGINController.cs" />
     <Compile Include="Controllers\HOMEController.cs" />
     <Compile Include="Controllers\CUSTOMERSController.cs" />
+    <Compile Include="Controllers\SW_REQUESTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,6 +192,7 @@
     <Content Include="Content\normalize.css" />
     <Content Include="Content\orders.css" />
     <Content Include="Content\stylesheet.css" />
+    <Content Include="Content\swrequest.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -245,6 +247,11 @@
     <Content Include="Views\LOGIN\Login.cshtml" />
     <Content Include="Views\LOGIN\Registrar.cshtml" />
     <Content Include="Views\CUSTOMERS\Orders.cshtml" />
+    <Content Include="Views\SW_REQUEST\Create.cshtml" />
+    <Content Include="Views\SW_REQUEST\Delete.cshtml" />
+    <Content Include="Views\SW_REQUEST\Details.cshtml" />
+    <Content Include="Views\SW_REQUEST\Edit.cshtml" />
+    <Content Include="Views\SW_REQUEST\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

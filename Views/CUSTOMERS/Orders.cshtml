@@ -19,7 +19,13 @@
             View data for
         </p>
         <p>
-            { Id: @Html.DisplayFor(modelItem => model.ElementAt(0).id_persona_)
+            { Id:
+            @{
+                if (model.Any())
+                {
+                    Html.DisplayFor(modelItem => model.ElementAt(0).id_persona_);
+                }
+            }
         </p>
         <p>
             Username: @Html.DisplayFor(modelItem => model.ElementAt(0).username_persona) }
@@ -31,7 +37,7 @@
             <div class="order-section">
                 <div class="order-info">
                     <script>
-                                                                                                                                                                                                                                //COLOR CHANGE ON "STATE" PRODUCT
+                                                                                                                                                                                                                                                                        //COLOR CHANGE ON "STATE" PRODUCT
                     </script>
                     <p>
                         <b>Order id: @Html.DisplayFor(modelItem => item.id_order_)</b>

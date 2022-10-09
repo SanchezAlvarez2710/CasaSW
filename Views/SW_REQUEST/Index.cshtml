@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CasaSW.Models.SW_REQUEST>
+
+@{
+    ViewBag.Title = "Submit Requests";
+    ViewBag.Guide = "Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+<link rel="stylesheet" href="~/Content/swrequest.css" />
+
+<p class="guide">
+    You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Request", "Index", "SW_REQUEST")
+</p>
+<div class="form">
+    <div class="container">
+        <form action="@Url.Action("Create", "SW_REQUEST")" method="post" class="form-request">
+            @* CLIENT INFO *@
+            <label for="cname">Name</label>
+            <input type="text" required id="cname" placeholder="Name" />
+            <label for="cname">Username</label>
+            <input type="text" required id="cname" placeholder="Username" />
+            <label for="cname">Password</label>
+            <input type="text" required id="cname" placeholder="Password" />
+            <label for="cname">Identification</label>
+            <input type="text" required id="cname" placeholder="Identification" />
+            <label for="cname">Number</label>
+            <input type="text" required id="cname" placeholder="Number" />
+            <label for="cname">Email</label>
+            <input type="text" required id="cname" placeholder="Email" />
+            @* PRODUCT INFO *@
+            <label for="cname">Name</label>
+            <input type="text" required id="cname" placeholder="Name" />
+            <label for="cname">Type</label>
+            <input type="text" required id="cname" placeholder="Type" />
+            <label for="cname">Description</label>
+            <input type="text" required id="cname" placeholder="Describe the product..." />
+            <div class="form-buttons">
+                <input type="submit" value="Submit" />
+                <input type="button" value="Cancel" />
+                <input type="button" value="Clean" />
+            </div>
+        </form>
+    </div>
+</div>

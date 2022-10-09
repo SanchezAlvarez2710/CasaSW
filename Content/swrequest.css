@@ -1,0 +1,133 @@
+﻿.form {
+    padding: 15rem 2rem 0 2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .form a {
+        text-decoration: none;
+        color: var(--primary);
+    }
+
+        .form a:hover {
+            color: var(--secundary);
+        }
+
+.guide {
+    color: var(--secundary);
+    float: left;
+}
+
+    .guide a {
+        color: var(--primary);
+    }
+
+        .guide a:hover {
+            color: var(--secundary);
+        }
+
+/* Style the container */
+.container {
+    border-radius: 5px;
+    padding: 20px;
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 60%, rgba(205,203,205,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(60%, rgba(245,245,245,1)), color-stop(100%, rgba(205,203,205,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 60%, rgba(205,203,205,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 60%, rgba(205,203,205,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 60%, rgba(205,203,205,1) 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height: 70rem;
+    overflow-y: scroll;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media (min-width: 600px) {
+    .input[type=submit] {
+        float: right;
+    }
+
+    .container {
+        overflow-y: hidden;
+    }
+
+    .form-request {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        grid-gap: 1rem 0;
+    }
+
+        .form-request label {
+            grid-column: 1;
+            color: var(--dark);
+        }
+
+        .form-request input[type="text"] {
+            grid-column: 2;
+        }
+
+    .form-buttons input {
+        border-radius: 5px;
+        cursor: pointer;
+        color: var(--primary);
+        border: none;
+        padding: 1rem 3rem;
+        text-transform: uppercase;
+        font-family: 'Fredoka One', cursive;
+    }
+
+    .form-request input[type="submit"] {
+        background-color: var(--success);
+    }
+
+        .form-request input[type="submit"]:hover {
+            background-color: #75a473;
+        }
+
+    .form-request input[type="button"]:nth-child(2) {
+        background-color: var(--cancel);
+    }
+
+        .form-request input[type="button"]:nth-child(2):hover {
+            background-color: #E78E8E;
+        }
+
+    .form-request input[type="button"]:nth-child(3) {
+        background-color: var(--dark);
+    }
+
+        .form-request input[type="button"]:nth-child(3):hover {
+            background-color: #35384d;
+        }
+}
+
+
+@media (min-width: 1082px) {
+    .guide {
+        margin: 8rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1148px) {
+    .guide {
+        margin: 9rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .guide {
+        margin: 10rem 0 2rem 2rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .guide {
+        margin: 11rem 0 2rem 2rem;
+    }
+}
