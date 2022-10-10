@@ -209,13 +209,6 @@
       <DependentUpon>ModelDAO.edmx</DependentUpon>
       <LastGenOutput>ModelDAO.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Models\ModelDAO.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDAO.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ModelDAO.edmx.diagram">
-      <DependentUpon>ModelDAO.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\request.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -227,7 +220,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LayoutSAC.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HOME\Index.cshtml" />
     <Content Include="Views\CUSTOMERS\Create.cshtml" />
     <Content Include="Views\CUSTOMERS\Delete.cshtml" />
@@ -249,8 +242,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <EntityDeploy Include="Models\ModelDAO.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDAO.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelDAO.edmx.diagram">
+      <DependentUpon>ModelDAO.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_LayoutADMIN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

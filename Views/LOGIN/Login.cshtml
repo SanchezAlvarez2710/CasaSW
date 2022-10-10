@@ -43,18 +43,18 @@
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="Username" class="form-control input_user" value="" placeholder="Username">
+                            <input type="text" required name="Username" class="form-control input_user" value="" placeholder="Username">
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="Password" class="form-control input_pass" value="" placeholder="Password">
+                            <input type="password" required name="Password" class="form-control input_pass" value="" placeholder="Password">
                         </div>
 
                         @if (ViewData["Mensaje"] != null)
                         {
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger" role="alert" style="text-align:center;">
                                 @ViewData["Mensaje"]
                             </div>
                         }

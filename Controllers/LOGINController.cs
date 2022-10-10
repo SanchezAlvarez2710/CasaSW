@@ -16,7 +16,6 @@ namespace CasaSW.Controllers
 {
     public class LOGINController : Controller
     {
-        static string cadena = "Data Source=(local);Initial Catalog=DB_ACCESO;Integrated Security=true";
         private CASASWEntities db = new CASASWEntities();
 
         // GET: ACCESOs
@@ -25,78 +24,92 @@ namespace CasaSW.Controllers
             return View();
         }
 
-        public ActionResult Registrar()
-        {
-            return View();
-        }
+        //public ActionResult Registrar()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult Registrar(UserAdmin oUsuario)
-        {
-            bool registrado;
-            string mensaje;
+        //[HttpPost]
+        //public ActionResult Registrar(UserAdmin oUsuario)
+        //{
+        //    bool registrado;
+        //    string mensaje;
 
-            if(oUsuario.Password == oUsuario.ConfirmarPassword)
-            {
-                oUsuario.Password = ConvertirSha256(oUsuario.Password);
-            }
-            else
-            {
-                ViewData["Mensaje"] = "Las contraseñas no coinciden";
-                return View();
-            }
+        //    if(oUsuario.Password == oUsuario.ConfirmarPassword)
+        //    {
+        //        oUsuario.Password = ConvertirSha256(oUsuario.Password);
+        //    }
+        //    else
+        //    {
+        //        ViewData["Mensaje"] = "Las contraseñas no coinciden";
+        //        return View();
+        //    }
 
-            using (SqlConnection cn = new SqlConnection(cadena))
-            {
-                SqlCommand cmd = new SqlCommand("sp_RegistrarUsuario", cn);
-                cmd.Parameters.AddWithValue("Username", oUsuario.Username);
-                cmd.Parameters.AddWithValue("Password", oUsuario.Password);
-                cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-                cmd.CommandType = CommandType.StoredProcedure;
+        //    using (SqlConnection cn = new SqlConnection(cadena))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("sp_RegistrarUsuario", cn);
+        //        cmd.Parameters.AddWithValue("Username", oUsuario.Username);
+        //        cmd.Parameters.AddWithValue("Password", oUsuario.Password);
+        //        cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+        //        cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+        //        cmd.CommandType = CommandType.StoredProcedure;
 
-                cn.Open();
+        //        cn.Open();
 
-                cmd.ExecuteNonQuery();
+        //        cmd.ExecuteNonQuery();
 
-                registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
-                mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-            }
+        //        registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
+        //        mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+        //    }
 
-            ViewData["Mensaje"] = mensaje;
+        //    ViewData["Mensaje"] = mensaje;
 
-            if (registrado)
-            {
-                return RedirectToAction("Login", "LOGIN");
-            }
-            else
-            {
-                return View();
-            }
-        }
+        //    if (registrado)
+        //    {
+        //        return RedirectToAction("Login", "LOGIN");
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+        //}
 
         [HttpPost]
         public ActionResult Login(UserAdmin oUsuario)
         {
-            oUsuario.Password = ConvertirSha256(oUsuario.Password);                      
-                //var confirmPersona = db.PERSONA.Select(x => x.username == oUsuario.Username).Where(z => z.username == oUsuario.Username).FirstOrDefault();
-                //Console.WriteLine(confirmPersona);
-                //if (confirmPersona != false)
-                //{
-                //    oUsuario.IdUsuario = 1;
-                //}
+            oUsuario.Password = ConvertirSha256(oUsuario.Password);
+         
+            IEnumerable<CasaSW.Models.ViewModel.UserAdmin> acceso = from o in db.PERSONA
+                         join p in db.ADMIN on o.id_persona equals p.id_persona
+                         where o.username == oUsuario.Username 
+                         select new UserAdmin
+                         {
+                             IdUsuario = (int)p.id_persona,
+                             Username = o.username,
+                             Password = o.password,
+                             Rol = p.rol
+                         };
 
 
-            if (oUsuario.IdUsuario != 0)
+            if (acceso.Any())
             {
-                Session["usuario"] = oUsuario;
-                return RedirectToAction("_Layout", "LAYAOUT", new {oUsuario});
-                       
-            }
-            
+                if (acceso.ElementAt(0).Password == oUsuario.Password)
+                {
+                    var condicion = acceso.ElementAt(0).Rol.ToLower();
+                    Session["usuario"] = oUsuario;
+                    switch (condicion)
+                    {
+                        case "sac":
+                            return RedirectToAction("Index", "HOME");
+                        case "admin":
+                            return RedirectToAction("Index", "HOME");
+                    }
+                }
+                ViewData["Mensaje"] = "Contraseña no coincide";
+                return View();
+            }            
             ViewData["Mensaje"] = "Usuario no encontrado";
-            return View();
-            
+            return View();            
         }
 
         public static string ConvertirSha256(string texto)

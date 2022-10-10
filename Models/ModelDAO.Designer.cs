@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'D:\ESTUDIO\POLITECNICO\2022 - 2\PROYECTO SW\ENTREGAS\M. TRADICIONAL\DESARROLLO\CasaSW\Models\ModelDAO.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'F:\DATA MILLER\Documentos\U\Semestre 6\Proyecto de construcción de SW\CasaSW\Models\ModelDAO.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.
