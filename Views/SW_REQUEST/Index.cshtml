@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Submit Requests";
     ViewBag.Guide = "Request";
-    Layout = "~/Views/Shared/_Layout.cshtml";    
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/Content/swrequest.css" />
 
@@ -12,32 +12,45 @@
 </p>
 <div class="form">
     <div class="container">
-        <form action="@Url.Action("Create", "SW_REQUEST")" method="post" class="form-request">
+        <form action="@Url.Action("Create", "SW_REQUEST")" method="post" class="form-request" id="form-request">
             @* CLIENT INFO *@
-            <label for="cname">Name</label>
-            <input type="text" required id="cname" placeholder="Name" />
-            <label for="cname">Username</label>
-            <input type="text" required id="cname" placeholder="Username" />
-            <label for="cname">Password</label>
-            <input type="text" required id="cname" placeholder="Password" />
-            <label for="cname">Identification</label>
-            <input type="text" required id="cname" placeholder="Identification" />
-            <label for="cname">Number</label>
-            <input type="text" required id="cname" placeholder="Number" />
-            <label for="cname">Email</label>
-            <input type="text" required id="cname" placeholder="Email" />
+            <fieldset class="customer-section">
+                <legend>Customer info</legend>
+                <label for="cname">Name</label>
+                <input type="text" required id="cname" placeholder="Name" />
+                <label for="cusername">Username</label>
+                <input type="text" required id="cusername" placeholder="Username" />
+                <label for="cpass">Password</label>
+                <input type="text" required id="cpass" placeholder="Password" />
+                <label for="cid">Identification</label>
+                <input type="text" required id="cid" placeholder="Identification" />
+                <label for="cnumber">Number</label>
+                <input type="text" required id="cnumber" placeholder="Number" />
+                <label for="cemail">Email</label>
+                <input type="text" required id="cemail" placeholder="Email" />
+            </fieldset>
             @* PRODUCT INFO *@
-            <label for="cname">Name</label>
-            <input type="text" required id="cname" placeholder="Name" />
-            <label for="cname">Type</label>
-            <input type="text" required id="cname" placeholder="Type" />
-            <label for="cname">Description</label>
-            <input type="text" required id="cname" placeholder="Describe the product..." />
+            <fieldset class="product-section">
+                <legend>Product info</legend>
+                <label for="pname">Name</label>
+                <input type="text" required id="pname" placeholder="Name" />
+                <label for="ptype">Type</label>
+                <select id="prodtype" required name="typepr" onchange="select()">
+                    <option value="" selected data-default>--Select product type</option>
+                    <option value="Web app">Web application</option>
+                    <option value="Desktop app">Desktop application</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" required id="pother" placeholder="What product would you like?" />
+                <label for="pdesc">Description</label>
+                <textarea required id="pdesc" placeholder="Describe the product..."></textarea>
+            </fieldset>
             <div class="form-buttons">
-                <input type="submit" value="Submit" />
-                <input type="button" value="Cancel" />
-                <input type="button" value="Clean" />
+                <input type="submit" value="Submit" />                
+                <input type="button" value="Clean" onclick="clean()" />
             </div>
         </form>
     </div>
 </div>
+
+<script src="~/Scripts/request.js"></script>

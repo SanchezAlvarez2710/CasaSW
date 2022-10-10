@@ -15,21 +15,21 @@
 </p>
 <div class="container">
     <div class="order-header">
-        <p>
-            View data for
-        </p>
-        <p>
-            { Id:
-            @{
-                if (model.Any())
-                {
-                    Html.DisplayFor(modelItem => model.ElementAt(0).id_persona_);
-                }
+        @{
+            if (model.Any())
+            {
+
+                <p>
+                    View data for
+                </p>
+                <p>
+                    { Id: @Html.DisplayFor(modelItem => model.ElementAt(0).id_persona_)
+                </p>
+                <p>
+                    Username: @Html.DisplayFor(modelItem => model.ElementAt(0).username_persona) }
+                </p>
             }
-        </p>
-        <p>
-            Username: @Html.DisplayFor(modelItem => model.ElementAt(0).username_persona) }
-        </p>
+        }
     </div>
     <div class="order-body">
         @foreach (var item in Model)

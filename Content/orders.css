@@ -8,7 +8,7 @@
     background-color: var(--primary);
     width: 100%;
     overflow-y: scroll;
-    max-height: 55rem;
+    max-height: 50rem;
 }
 
 .order-header {

@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/normalize.css"/>
-    <link rel="stylesheet" href="~/Content/stylesheet.css"/>
+    <link rel="stylesheet" href="~/css/normalize.css" />
+    <link rel="stylesheet" href="~/Content/stylesheet.css" />
 </head>
 <body>
     <header>
@@ -32,7 +32,7 @@
             <nav class="nav-pr">
                 @Html.ActionLink("Home", "Index", "HOME")
                 @Html.ActionLink("Request", "Index", "SW_REQUEST")
-                @Html.ActionLink("Customers", "Index", "CUSTOMERS") 
+                @Html.ActionLink("Customers", "Index", "CUSTOMERS")
                 @Html.ActionLink("Stock", "Stock", "HOME")
                 <a>Support</a>
             </nav>
@@ -53,6 +53,6 @@
     </header>
     <div>
         @RenderBody()
-    </div>
+    </div>    
 </body>
 </html>
