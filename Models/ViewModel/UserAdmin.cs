@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CasaSW.Models
+namespace CasaSW.Models.ViewModel
 {
     public class UserAdmin
     {

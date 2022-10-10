@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LAYOUTController.cs" />
     <Compile Include="Controllers\LOGINController.cs" />
     <Compile Include="Controllers\HOMEController.cs" />
     <Compile Include="Controllers\CUSTOMERSController.cs" />
@@ -233,7 +234,6 @@
     <Content Include="Views\CUSTOMERS\Edit.cshtml" />
     <Content Include="Views\CUSTOMERS\Index.cshtml" />
     <Content Include="Views\LOGIN\Login.cshtml" />
-    <Content Include="Views\LOGIN\Registrar.cshtml" />
     <Content Include="Views\CUSTOMERS\Orders.cshtml" />
     <Content Include="Views\SW_REQUEST\Create.cshtml" />
     <Content Include="Views\SW_REQUEST\Delete.cshtml" />
@@ -241,7 +241,9 @@
     <Content Include="Views\SW_REQUEST\Edit.cshtml" />
     <Content Include="Views\SW_REQUEST\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\LAYOUT\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

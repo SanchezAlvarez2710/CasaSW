@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-
+using CasaSW.Models.ViewModel;
 using CasaSW.Models;
 using System.Data.SqlClient;
 using System.Data;
@@ -89,15 +89,14 @@ namespace CasaSW.Controllers
 
             if (oUsuario.IdUsuario != 0)
             {
-                
                 Session["usuario"] = oUsuario;
-                return RedirectToAction("Index", "HOME");
+                return RedirectToAction("_Layout", "LAYAOUT", new {oUsuario});
+                       
             }
-            else
-            {
-                ViewData["Mensaje"] = "usuario no encontrado";
-                return View();
-            }            
+            
+            ViewData["Mensaje"] = "Usuario no encontrado";
+            return View();
+            
         }
 
         public static string ConvertirSha256(string texto)
