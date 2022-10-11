@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CasaSW.Models;
+using CasaSW.Permisos;
 
 namespace CasaSW.Controllers
 {
+    [ValidarSesion]
     public class SW_REQUESTController : Controller
     {
         private CASASWEntities db = new CASASWEntities();

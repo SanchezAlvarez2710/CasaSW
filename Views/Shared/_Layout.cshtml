@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    CasaSW.Models.ViewModel.UserAdmin oUsuario;
+    oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
+    var condicion = oUsuario.Rol.ToLower();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,11 +36,24 @@
                 </svg>
             </label>
             <nav class="nav-pr">
-                @Html.ActionLink("Home", "Index", "HOME")
-                @Html.ActionLink("Request", "Index", "SW_REQUEST")
-                @Html.ActionLink("Customers", "Index", "CUSTOMERS")
-                @Html.ActionLink("Stock", "Stock", "HOME")
-                @Html.ActionLink("Support", "", "") 
+
+
+                @{
+                    @Html.ActionLink("Home", "Index", "HOME");
+                    @Html.ActionLink("Request", "Index", "SW_REQUEST");
+                    @Html.ActionLink("Customers", "Index", "CUSTOMERS");
+                    @Html.ActionLink("Stock", "Stock", "HOME");
+                    switch (condicion)
+                    {
+                        case "sac":
+                            @Html.ActionLink("Support", "", "");
+                            break;
+                        case "admin":
+                            @Html.ActionLink("Management", "", "");
+                            break;
+                    }
+                }
+
             </nav>
             <div class="user-icon">
                 <div>

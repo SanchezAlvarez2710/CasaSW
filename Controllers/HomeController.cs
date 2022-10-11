@@ -7,7 +7,7 @@ using CasaSW.Permisos;
 
 namespace CasaSW.Controllers
 {
-    //[ValidarSesion]
+    [ValidarSesion]
     public class HOMEController : Controller
     {
         public ActionResult Index()

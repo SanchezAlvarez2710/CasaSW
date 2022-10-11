@@ -96,16 +96,18 @@ namespace CasaSW.Controllers
                 if (acceso.ElementAt(0).Password == oUsuario.Password)
                 {
                     var condicion = acceso.ElementAt(0).Rol.ToLower();
+                    oUsuario.Rol = condicion;
                     Session["usuario"] = oUsuario;
-                    switch (condicion)
-                    {
-                        case "sac":
-                            return RedirectToAction("Index", "HOME");
-                        case "admin":
-                            return RedirectToAction("Index", "HOME");
-                    }
+                    return RedirectToAction("Index", "HOME");
+                    //switch (condicion)
+                    //{
+                    //    case "sac":
+                    //        return RedirectToAction("Index", "HOME");
+                    //    case "admin":
+                    //        return RedirectToAction("Index", "HOME");
+                    //}
                 }
-                ViewData["Mensaje"] = "Contraseña no coincide";
+                ViewData["Mensaje"] = "Contraseña incorrecta";
                 return View();
             }            
             ViewData["Mensaje"] = "Usuario no encontrado";
