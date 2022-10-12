@@ -1,0 +1,79 @@
+﻿@model IEnumerable<CasaSW.Models.ViewModel.UserAdmin>
+
+@{
+    ViewBag.Title = "SAC Management";
+    ViewBag.Guide = "Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/management.css" />
+
+<p class="guide">
+    You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Management", "Index")
+</p>
+<div class="form">
+    <p>
+        @Html.ActionLink("Create New SAC", "Create")
+    </p>
+    <table class="table">
+        <tr class="tbl-header">
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+        <tbody class="tbl-body">
+            @foreach (var item in Model)
+            {
+                <tr class="tbl-body-content">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUsuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td class="actions">
+                        <input onclick="jsDelete(@item.IdUsuario);" type="button" value=" Delete" class="btn btn-danger"/>
+                        <input onclick="document.location.href = '@Url.Content("~/MANAGEMENT/Edit/"+ item.IdUsuario)'" type="button" value="Edit" class="btn btn-danger" /> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function jsDelete(id) {
+        if (confirm("Estas seguro de eliminar?")) {
+            url = "@Url.Content("~/MANAGEMENT/Edit")" + "/" + id;
+
+            $.post(url, function (data) {
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/MANAGEMENT/")"
+                }
+                else {
+                    alert("Ocurrio un error")
+                }
+            })
+        }
+    }
+</script>
+
+
