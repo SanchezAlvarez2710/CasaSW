@@ -18,7 +18,7 @@ namespace CasaSW.Models
         public int id_persona { get; set; }
         public int denied { get; set; }
         public string phoneN { get; set; }
-        public System.DateTime signUpDate { get; set; } = DateTime.Now;
+        public System.DateTime signUpDate { get; set; }
         public string adminFB { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }

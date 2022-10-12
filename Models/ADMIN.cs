@@ -18,6 +18,7 @@ namespace CasaSW.Models
         public int id_persona { get; set; }
         public string rol { get; set; }
         public int state { get; set; }
+        public string avatar { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }
     }

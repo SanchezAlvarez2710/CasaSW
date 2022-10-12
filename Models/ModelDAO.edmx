@@ -13,6 +13,7 @@
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="avatar" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -30,7 +31,7 @@
           <Key>
             <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
@@ -183,6 +184,7 @@
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="avatar" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_admin_id" FromRole="ADMIN" ToRole="PERSONA" />
         </EntityType>
         <EntityType Name="ORDER">
@@ -203,7 +205,7 @@
           <Key>
             <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
@@ -365,6 +367,7 @@
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="rol" ColumnName="rol" />
                 <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
