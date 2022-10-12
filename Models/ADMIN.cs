@@ -20,5 +20,14 @@ namespace CasaSW.Models
         public string avatar { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }
+
+        public ADMIN(int? id_persona, string rol)
+        {
+            this.id_persona = id_persona;
+            this.rol = rol;
+        }
+        public ADMIN()
+        {
+        }
     }
 }
