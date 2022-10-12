@@ -19,14 +19,5 @@ namespace CasaSW.Models
         public string description { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }
-        public SW_REQUEST()
-        {
-        }
-        public SW_REQUEST(int id_request, int id_persona, string description)
-        {
-            this.id_request = id_request;
-            this.id_persona = id_persona;
-            this.description = description;
-        }
     }
 }

@@ -15,8 +15,8 @@ namespace CasaSW.Models
     public partial class ORDER
     {
         public int id_order { get; set; }
-        public Nullable<int> id_product { get; set; }
-        public Nullable<int> id_persona { get; set; }
+        public int id_product { get; set; }
+        public int id_persona { get; set; }
         public string orderName { get; set; }
         public string state { get; set; }
         public double subtotal { get; set; }
@@ -24,19 +24,5 @@ namespace CasaSW.Models
     
         public virtual PERSONA PERSONA { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
-
-        public ORDER()
-        {
-        }
-        public ORDER(int id_order, int? id_product, int? id_persona, string orderName, string state, double subtotal, double total)
-        {
-            this.id_order = id_order;
-            this.id_product = id_product;
-            this.id_persona = id_persona;
-            this.orderName = orderName;
-            this.state = state;
-            this.subtotal = subtotal;
-            this.total = total;
-        }
     }
 }

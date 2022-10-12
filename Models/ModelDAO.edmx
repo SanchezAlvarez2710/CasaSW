@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id_admin" />
           </Key>
-          <Property Name="id_admin" Type="int" Nullable="false" />
+          <Property Name="id_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="state" Type="int" Nullable="false" />
@@ -18,9 +18,9 @@
           <Key>
             <PropertyRef Name="id_order" />
           </Key>
-          <Property Name="id_order" Type="int" Nullable="false" />
-          <Property Name="id_product" Type="int" />
-          <Property Name="id_persona" Type="int" />
+          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_product" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="orderName" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="state" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="subtotal" Type="float" Nullable="false" />
@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_persona" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
@@ -40,8 +40,8 @@
           <Key>
             <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="id_product" Type="int" Nullable="false" />
-          <Property Name="id_persona" Type="int" />
+          <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="version" Type="varchar" MaxLength="30" />
@@ -51,7 +51,7 @@
           <Key>
             <PropertyRef Name="id_request" />
           </Key>
-          <Property Name="id_request" Type="int" Nullable="false" />
+          <Property Name="id_request" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="1000" Nullable="false" />
         </EntityType>
@@ -59,8 +59,8 @@
           <Key>
             <PropertyRef Name="id_user" />
           </Key>
-          <Property Name="id_user" Type="int" Nullable="false" />
-          <Property Name="id_persona" Type="int" />
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="denied" Type="int" Nullable="false" />
           <Property Name="phoneN" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="signUpDate" Type="date" Nullable="false" />
@@ -79,7 +79,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_order">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -91,7 +91,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_product_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -115,7 +115,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_user_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="USER" Type="Self.USER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -127,7 +127,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_product_order">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
           <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCT">
@@ -179,7 +179,7 @@
           <Key>
             <PropertyRef Name="id_admin" />
           </Key>
-          <Property Name="id_admin" Type="Int32" Nullable="false" />
+          <Property Name="id_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="state" Type="Int32" Nullable="false" />
@@ -189,9 +189,9 @@
           <Key>
             <PropertyRef Name="id_order" />
           </Key>
-          <Property Name="id_order" Type="Int32" Nullable="false" />
-          <Property Name="id_product" Type="Int32" />
-          <Property Name="id_persona" Type="Int32" />
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="orderName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="subtotal" Type="Double" Nullable="false" />
@@ -203,7 +203,7 @@
           <Key>
             <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
@@ -218,8 +218,8 @@
           <Key>
             <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="id_product" Type="Int32" Nullable="false" />
-          <Property Name="id_persona" Type="Int32" />
+          <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="version" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -231,7 +231,7 @@
           <Key>
             <PropertyRef Name="id_request" />
           </Key>
-          <Property Name="id_request" Type="Int32" Nullable="false" />
+          <Property Name="id_request" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_swrequest_id" FromRole="SW_REQUEST" ToRole="PERSONA" />
@@ -240,8 +240,8 @@
           <Key>
             <PropertyRef Name="id_user" />
           </Key>
-          <Property Name="id_user" Type="Int32" Nullable="false" />
-          <Property Name="id_persona" Type="Int32" />
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="denied" Type="Int32" Nullable="false" />
           <Property Name="phoneN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="signUpDate" Type="DateTime" Nullable="false" Precision="0" />
@@ -261,7 +261,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_order">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -273,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_product_order">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
           <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCT">
@@ -285,7 +285,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_product_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -309,7 +309,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_user_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="USER" Type="Self.USER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">

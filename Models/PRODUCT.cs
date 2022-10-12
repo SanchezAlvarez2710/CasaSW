@@ -21,7 +21,7 @@ namespace CasaSW.Models
         }
     
         public int id_product { get; set; }
-        public Nullable<int> id_persona { get; set; }
+        public int id_persona { get; set; }
         public string name { get; set; }
         public string type { get; set; }
         public string version { get; set; }
@@ -30,14 +30,5 @@ namespace CasaSW.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDER { get; set; }
         public virtual PERSONA PERSONA { get; set; }
-        public PRODUCT(int id_product, int? id_persona, string name, string type, string version, string description)
-        {
-            this.id_product = id_product;
-            this.id_persona = id_persona;
-            this.name = name;
-            this.type = type;
-            this.version = version;
-            this.description = description;
-        }
     }
 }
