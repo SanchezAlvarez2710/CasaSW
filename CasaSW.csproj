@@ -132,6 +132,7 @@
     <Compile Include="Controllers\LOGINController.cs" />
     <Compile Include="Controllers\HOMEController.cs" />
     <Compile Include="Controllers\CUSTOMERSController.cs" />
+    <Compile Include="Controllers\MANAGEMENTController.cs" />
     <Compile Include="Controllers\SW_REQUESTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +187,8 @@
     <Content Include="App_Data\CASASW_log.ldf">
       <DependentUpon>CASASW.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\register.css" />
+    <Content Include="Content\management.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\customers.css" />
@@ -247,6 +250,9 @@
       <DependentUpon>ModelDAO.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="Views\MANAGEMENT\Index.cshtml" />
+    <Content Include="Views\MANAGEMENT\Create.cshtml" />
+    <Content Include="Views\MANAGEMENT\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

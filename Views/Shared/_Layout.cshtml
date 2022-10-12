@@ -1,7 +1,7 @@
 ﻿@{ 
-    CasaSW.Models.ViewModel.UserAdmin oUsuario;
-    oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
-    var condicion = oUsuario.Rol.ToLower();
+CasaSW.Models.ViewModel.UserAdmin oUsuario;
+oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
+//var condicion = oUsuario.Rol.ToLower();
 }
 
 <!DOCTYPE html>
@@ -43,21 +43,22 @@
                     @Html.ActionLink("Request", "Index", "SW_REQUEST");
                     @Html.ActionLink("Customers", "Index", "CUSTOMERS");
                     @Html.ActionLink("Stock", "Stock", "HOME");
-                    switch (condicion)
+                    @*switch (condicion)
                     {
                         case "sac":
-                            @Html.ActionLink("Support", "", "");
+                            @Html.ActionLink("Support", "Index", "");
                             break;
-                        case "admin":
-                            @Html.ActionLink("Management", "", "");
-                            break;
-                    }
+                        case "admin":*@
+                            @Html.ActionLink("Management", "Index", "MANAGEMENT");
+                            @*break;
+                    }*@
                 }
 
             </nav>
             <div class="user-icon">
                 <div>
-                    <p>Username</p>
+                    
+                    <p>@oUsuario.Username</p>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="56"
                          height="56" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbbbbb" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">

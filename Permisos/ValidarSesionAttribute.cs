@@ -14,6 +14,11 @@ namespace CasaSW.Permisos
             {
                 filterContext.Result = new RedirectResult("~/LOGIN/Login");
             }
+            else
+            {
+                filterContext.Result = new RedirectResult("~/HOME/Index");
+            }
+
 
             base.OnActionExecuting(filterContext);
         }

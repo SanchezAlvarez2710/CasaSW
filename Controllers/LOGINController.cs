@@ -90,7 +90,6 @@ namespace CasaSW.Controllers
                              Rol = p.rol
                          };
 
-
             if (acceso.Any())
             {
                 if (acceso.ElementAt(0).Password == oUsuario.Password)
@@ -99,13 +98,6 @@ namespace CasaSW.Controllers
                     oUsuario.Rol = condicion;
                     Session["usuario"] = oUsuario;
                     return RedirectToAction("Index", "HOME");
-                    //switch (condicion)
-                    //{
-                    //    case "sac":
-                    //        return RedirectToAction("Index", "HOME");
-                    //    case "admin":
-                    //        return RedirectToAction("Index", "HOME");
-                    //}
                 }
                 ViewData["Mensaje"] = "Contraseña incorrecta";
                 return View();
