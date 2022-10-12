@@ -118,6 +118,17 @@ h3 {
     #hamburger-mn:checked ~ .nav-pr {
         display: block;
     }
+    .bg-active{
+        position: center;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        display: none;
+    }
+
+    #hamburger-mn:checked ~ .bg-active{        
+        background-color: #11111140;
+    }
 
 .lbl-hm {
     display: flex;

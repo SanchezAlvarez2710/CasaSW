@@ -19,6 +19,8 @@
 </head>
 <body>
     <header>
+        <div class="bg-active">
+        </div>
         <div class="nav-tl">
             <div>
                 <p>@ViewBag.Guide</p>
@@ -36,8 +38,6 @@
                 </svg>
             </label>
             <nav class="nav-pr">
-
-
                 @{
                     @Html.ActionLink("Home", "Index", "HOME");
                     @Html.ActionLink("Request", "Index", "SW_REQUEST");
@@ -57,7 +57,7 @@
             </nav>
             <div class="user-icon">
                 <div>
-                    <p>Username</p>
+                    <p>@oUsuario.Username</p>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="56"
                          height="56" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbbbbb" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">
@@ -72,6 +72,6 @@
     </header>
     <div>
         @RenderBody()
-    </div>    
+    </div>
 </body>
 </html>

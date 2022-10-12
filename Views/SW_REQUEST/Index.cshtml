@@ -17,30 +17,30 @@
             <fieldset class="customer-section">
                 <legend>Customer info</legend>
                 <label for="cid">Identification</label>
-                <input type="text" required id="cid" placeholder="Identification" name="id_persona" />
+                <input type="number" required id="cid" placeholder="Identification" name="id_persona" />
                 <label for="cname">Name</label>
                 <input type="text" required id="cname" placeholder="Name" name="Name_" />
                 <label for="cusername">Username</label>
-                <input type="text" required id="cusername" placeholder="Username" name="username_persona" />
+                <input type="text" id="cusername" placeholder="Username" name="username_persona" />
                 <label for="cpass">Password</label>
-                <input type="text" required id="cpass" placeholder="Password" name="Password_" />
+                <input type="password" required id="cpass" placeholder="Password" name="Password_" />
                 <label for="cemail">Email</label>
-                <input type="text" required id="cemail" placeholder="Email" name="Email_" />
-                <label for="cnumber">Number</label>
-                <input type="text" required id="cnumber" placeholder="PhoneNumber" name="PhoneN_" />
+                <input type="email" required id="cemail" placeholder="Email" name="Email_" />
+                <label for="cnumber">Phone number</label>
+                <input type="tel" required id="cnumber" placeholder="PhoneNumber" name="PhoneN_" />
             </fieldset>
             @* PRODUCT INFO *@
             <fieldset class="product-section">
                 <legend>Product info</legend>
                 <label for="pname">Name</label>
                 <input type="text" required id="pname" placeholder="Name" name="product_name" />
-                <label for="ptype">Type</label>
-                <select id="prodtype" required name="product_type" onchange="select()">
+                <label>Type<input name="product_type" list="prodtype" placeholder="Product type"/></label>
+                <datalist id="prodtype" required onchange="select()">
                     <option value="" selected data-default>--Select product type</option>
                     <option value="Web app">Web application</option>
                     <option value="Desktop app">Desktop application</option>
                     <option value="Other">Other</option>
-                </select>
+                </datalist>
                 @*<input type="text" required id="pother" placeholder="What product would you like?" /> if user choose "other" option*@
                 <label for="pdesc">Description</label>
                 <textarea required id="pdesc" placeholder="Describe the product..." name="product_description"></textarea>

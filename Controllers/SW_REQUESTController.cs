@@ -74,8 +74,8 @@ namespace CasaSW.Controllers
         public ActionResult Create(RequestPOCP requestPOCP)
         {
             //[Bind(Include = "id_persona,specifiations")] SW_REQUEST sW_REQUEST
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
             //INSTANCE DB CLASSES
                 //PERSONA
                     PERSONA pERSONA = new PERSONA();
@@ -120,7 +120,7 @@ namespace CasaSW.Controllers
             db.SW_REQUEST.Add(sW_REQUEST);
             //SAVE CHANGES TO DB
             db.SaveChanges();
-        }            
+        //}            
 
             return RedirectToAction("Index", "HOME");
             //ViewBag.id_persona = new SelectList(db.PERSONA, "id_persona", "username", sW_REQUEST.id_persona);
