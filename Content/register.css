@@ -1,0 +1,111 @@
+﻿:root {
+    --primary: #efefef;
+    --secundary: #939292;
+    --cancel: #e75c5c;
+    --dark: #1b1d28;
+    --success: #55a252;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Fredoka One', cursive;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-size: 16px;
+    background-image: url(../img/bg-main.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+/* Main */
+main {
+    height: 90%;
+    width: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    width: 400px;
+    height: 600px;
+}
+
+fieldset {
+    border: solid var(--primary) 3px;
+}
+
+legend {
+    color: var(--primary);
+    font-size: medium;
+    padding: 0.6px;
+    margin: auto;
+    font-size: 30px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 110px;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid black;
+    margin-bottom: 5px;
+}
+
+select {
+    height: 44px;
+}
+
+
+input {
+    margin: 0 0 10px 80px;
+    padding: 1rem;
+}
+
+.all {
+    margin-bottom: 8px;
+}
+
+.create {
+    padding: 12px 18px;
+    border: none;
+    margin-top: 3rem;
+    margin-left: 120px;
+    background-color: var(--secundary);
+    color: var(--primary);
+}
+
+.cancel {
+    padding: 12px 43px;
+    border: none;
+    margin-top: 1.5rem;
+    margin-left: 120px;
+    background-color: var(--cancel);
+    color: var(--primary);
+}
