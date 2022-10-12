@@ -25,12 +25,10 @@ namespace CasaSW.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ADMIN> ADMIN { get; set; }
         public virtual DbSet<ORDER> ORDER { get; set; }
         public virtual DbSet<PERSONA> PERSONA { get; set; }
         public virtual DbSet<PRODUCT> PRODUCT { get; set; }
-        public virtual DbSet<ADMIN> ADMIN { get; set; }
-        public virtual DbSet<CUSTOMER_FB> CUSTOMER_FB { get; set; }
-        public virtual DbSet<PRODUCT_FB> PRODUCT_FB { get; set; }
         public virtual DbSet<SW_REQUEST> SW_REQUEST { get; set; }
         public virtual DbSet<USER> USER { get; set; }
     }

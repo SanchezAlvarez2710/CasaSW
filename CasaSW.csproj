@@ -139,9 +139,6 @@
     <Compile Include="Models\ADMIN.cs">
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CUSTOMER_FB.cs">
-      <DependentUpon>ModelDAO.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ModelDAO.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -166,9 +163,6 @@
     <Compile Include="Models\PRODUCT.cs">
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PRODUCT_FB.cs">
-      <DependentUpon>ModelDAO.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SW_REQUEST.cs">
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
@@ -177,6 +171,7 @@
     </Compile>
     <Compile Include="Models\ViewModel\OrderProduct.cs" />
     <Compile Include="Models\ViewModel\CustomerPersona.cs" />
+    <Compile Include="Models\ViewModel\RequestPOCP.cs" />
     <Compile Include="Models\ViewModel\UserAdmin.cs" />
     <Compile Include="Permisos\ValidarSesionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

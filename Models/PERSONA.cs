@@ -17,9 +17,8 @@ namespace CasaSW.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PERSONA()
         {
-            this.ORDER = new HashSet<ORDER>();
             this.ADMIN = new HashSet<ADMIN>();
-            this.CUSTOMER_FB = new HashSet<CUSTOMER_FB>();
+            this.ORDER = new HashSet<ORDER>();
             this.PRODUCT = new HashSet<PRODUCT>();
             this.SW_REQUEST = new HashSet<SW_REQUEST>();
             this.USER = new HashSet<USER>();
@@ -32,16 +31,22 @@ namespace CasaSW.Models
         public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDER { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ADMIN> ADMIN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CUSTOMER_FB> CUSTOMER_FB { get; set; }
+        public virtual ICollection<ORDER> ORDER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SW_REQUEST> SW_REQUEST { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USER> USER { get; set; }
+        public PERSONA(int id_persona, string username, string password, string name, string email)
+        {
+            this.id_persona = id_persona;
+            this.username = username;
+            this.password = password;
+            this.name = name;
+            this.email = email;
+        }
     }
 }

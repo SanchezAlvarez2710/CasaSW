@@ -5,26 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="CASASWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYECTO DE CONSTRUCCIÓN DE SW\CASASW\APP_DATA\CASASW.MDF.dbo.ADMIN' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ADMIN">
           <Key>
-            <PropertyRef Name="rol" />
+            <PropertyRef Name="id_admin" />
           </Key>
-          <Property Name="id_persona" Type="int" />
+          <Property Name="id_admin" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="10" Nullable="false" />
-        </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYECTO DE CONSTRUCCIÓN DE SW\CASASW\APP_DATA\CASASW.MDF.dbo.CUSTOMER_FB' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="CUSTOMER_FB">
-          <Key>
-            <PropertyRef Name="fdbDate" />
-            <PropertyRef Name="rating" />
-          </Key>
-          <Property Name="id_persona" Type="int" />
-          <Property Name="fdbDate" Type="date" Nullable="false" />
-          <Property Name="rating" Type="int" Nullable="false" />
-          <Property Name="comment" Type="varchar" MaxLength="250" />
+          <Property Name="state" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -44,7 +32,7 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           </Key>
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -59,35 +47,19 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           <Property Name="version" Type="varchar" MaxLength="30" />
           <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYECTO DE CONSTRUCCIÓN DE SW\CASASW\APP_DATA\CASASW.MDF.dbo.PRODUCT_FB' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="PRODUCT_FB">
-          <Key>
-            <PropertyRef Name="fdbDate" />
-            <PropertyRef Name="rating" />
-          </Key>
-          <Property Name="id_product" Type="int" />
-          <Property Name="fdbDate" Type="date" Nullable="false" />
-          <Property Name="rating" Type="int" Nullable="false" />
-          <Property Name="comment" Type="varchar" MaxLength="250" />
-        </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYECTO DE CONSTRUCCIÓN DE SW\CASASW\APP_DATA\CASASW.MDF.dbo.SW_REQUEST' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SW_REQUEST">
           <Key>
-            <PropertyRef Name="specifiations" />
+            <PropertyRef Name="id_request" />
           </Key>
-          <Property Name="id_persona" Type="int" />
-          <Property Name="specifiations" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="id_request" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="1000" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYECTO DE CONSTRUCCIÓN DE SW\CASASW\APP_DATA\CASASW.MDF.dbo.USER' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="USER">
           <Key>
-            <PropertyRef Name="denied" />
-            <PropertyRef Name="phoneN" />
-            <PropertyRef Name="signUpDate" />
+            <PropertyRef Name="id_user" />
           </Key>
+          <Property Name="id_user" Type="int" Nullable="false" />
           <Property Name="id_persona" Type="int" />
           <Property Name="denied" Type="int" Nullable="false" />
           <Property Name="phoneN" Type="varchar" MaxLength="20" Nullable="false" />
@@ -95,25 +67,13 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           <Property Name="adminFB" Type="varchar" MaxLength="250" />
         </EntityType>
         <Association Name="fk_persona_admin_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
             </Principal>
             <Dependent Role="ADMIN">
-              <PropertyRef Name="id_persona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_persona_customerfb_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
-          <End Role="CUSTOMER_FB" Type="Self.CUSTOMER_FB" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PERSONA">
-              <PropertyRef Name="id_persona" />
-            </Principal>
-            <Dependent Role="CUSTOMER_FB">
               <PropertyRef Name="id_persona" />
             </Dependent>
           </ReferentialConstraint>
@@ -143,7 +103,7 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_swrequest_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -178,66 +138,16 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_product_productfb_id">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
-          <End Role="PRODUCT_FB" Type="Self.PRODUCT_FB" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCT">
-              <PropertyRef Name="id_product" />
-            </Principal>
-            <Dependent Role="PRODUCT_FB">
-              <PropertyRef Name="id_product" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CASASWModelStoreContainer">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ADMIN].[id_persona] AS [id_persona], 
-    [ADMIN].[rol] AS [rol]
-    FROM [dbo].[ADMIN] AS [ADMIN]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CUSTOMER_FB" EntityType="Self.CUSTOMER_FB" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CUSTOMER_FB].[id_persona] AS [id_persona], 
-    [CUSTOMER_FB].[fdbDate] AS [fdbDate], 
-    [CUSTOMER_FB].[rating] AS [rating], 
-    [CUSTOMER_FB].[comment] AS [comment]
-    FROM [dbo].[CUSTOMER_FB] AS [CUSTOMER_FB]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="PRODUCT_FB" EntityType="Self.PRODUCT_FB" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [PRODUCT_FB].[id_product] AS [id_product], 
-    [PRODUCT_FB].[fdbDate] AS [fdbDate], 
-    [PRODUCT_FB].[rating] AS [rating], 
-    [PRODUCT_FB].[comment] AS [comment]
-    FROM [dbo].[PRODUCT_FB] AS [PRODUCT_FB]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SW_REQUEST" EntityType="Self.SW_REQUEST" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SW_REQUEST].[id_persona] AS [id_persona], 
-    [SW_REQUEST].[specifiations] AS [specifiations]
-    FROM [dbo].[SW_REQUEST] AS [SW_REQUEST]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="USER" EntityType="Self.USER" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [USER].[id_persona] AS [id_persona], 
-    [USER].[denied] AS [denied], 
-    [USER].[phoneN] AS [phoneN], 
-    [USER].[signUpDate] AS [signUpDate], 
-    [USER].[adminFB] AS [adminFB]
-    FROM [dbo].[USER] AS [USER]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="SW_REQUEST" EntityType="Self.SW_REQUEST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_persona_admin_id" Association="Self.fk_persona_admin_id">
             <End Role="PERSONA" EntitySet="PERSONA" />
             <End Role="ADMIN" EntitySet="ADMIN" />
-          </AssociationSet>
-          <AssociationSet Name="fk_persona_customerfb_id" Association="Self.fk_persona_customerfb_id">
-            <End Role="PERSONA" EntitySet="PERSONA" />
-            <End Role="CUSTOMER_FB" EntitySet="CUSTOMER_FB" />
           </AssociationSet>
           <AssociationSet Name="fk_persona_order" Association="Self.fk_persona_order">
             <End Role="PERSONA" EntitySet="PERSONA" />
@@ -259,16 +169,22 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
             <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="ORDER" EntitySet="ORDER" />
           </AssociationSet>
-          <AssociationSet Name="fk_product_productfb_id" Association="Self.fk_product_productfb_id">
-            <End Role="PRODUCT" EntitySet="PRODUCT" />
-            <End Role="PRODUCT_FB" EntitySet="PRODUCT_FB" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CASASWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_admin_id" FromRole="ADMIN" ToRole="PERSONA" />
+        </EntityType>
         <EntityType Name="ORDER">
           <Key>
             <PropertyRef Name="id_order" />
@@ -289,12 +205,11 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           </Key>
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ORDER" Relationship="Self.fk_persona_order" FromRole="PERSONA" ToRole="ORDER" />
           <NavigationProperty Name="ADMIN" Relationship="Self.fk_persona_admin_id" FromRole="PERSONA" ToRole="ADMIN" />
-          <NavigationProperty Name="CUSTOMER_FB" Relationship="Self.fk_persona_customerfb_id" FromRole="PERSONA" ToRole="CUSTOMER_FB" />
+          <NavigationProperty Name="ORDER" Relationship="Self.fk_persona_order" FromRole="PERSONA" ToRole="ORDER" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.fk_persona_product_id" FromRole="PERSONA" ToRole="PRODUCT" />
           <NavigationProperty Name="SW_REQUEST" Relationship="Self.fk_persona_swrequest_id" FromRole="PERSONA" ToRole="SW_REQUEST" />
           <NavigationProperty Name="USER" Relationship="Self.fk_persona_user_id" FromRole="PERSONA" ToRole="USER" />
@@ -311,52 +226,21 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ORDER" Relationship="Self.fk_product_order" FromRole="PRODUCT" ToRole="ORDER" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_product_id" FromRole="PRODUCT" ToRole="PERSONA" />
-          <NavigationProperty Name="PRODUCT_FB" Relationship="Self.fk_product_productfb_id" FromRole="PRODUCT" ToRole="PRODUCT_FB" />
-        </EntityType>
-        <EntityType Name="ADMIN">
-          <Key>
-            <PropertyRef Name="rol" />
-          </Key>
-          <Property Name="id_persona" Type="Int32" />
-          <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_admin_id" FromRole="ADMIN" ToRole="PERSONA" />
-        </EntityType>
-        <EntityType Name="CUSTOMER_FB">
-          <Key>
-            <PropertyRef Name="fdbDate" />
-            <PropertyRef Name="rating" />
-          </Key>
-          <Property Name="id_persona" Type="Int32" />
-          <Property Name="fdbDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="rating" Type="Int32" Nullable="false" />
-          <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_customerfb_id" FromRole="CUSTOMER_FB" ToRole="PERSONA" />
-        </EntityType>
-        <EntityType Name="PRODUCT_FB">
-          <Key>
-            <PropertyRef Name="fdbDate" />
-            <PropertyRef Name="rating" />
-          </Key>
-          <Property Name="id_product" Type="Int32" />
-          <Property Name="fdbDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="rating" Type="Int32" Nullable="false" />
-          <Property Name="comment" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PRODUCT" Relationship="Self.fk_product_productfb_id" FromRole="PRODUCT_FB" ToRole="PRODUCT" />
         </EntityType>
         <EntityType Name="SW_REQUEST">
           <Key>
-            <PropertyRef Name="specifiations" />
+            <PropertyRef Name="id_request" />
           </Key>
-          <Property Name="id_persona" Type="Int32" />
-          <Property Name="specifiations" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_request" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_swrequest_id" FromRole="SW_REQUEST" ToRole="PERSONA" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
-            <PropertyRef Name="denied" />
-            <PropertyRef Name="phoneN" />
-            <PropertyRef Name="signUpDate" />
+            <PropertyRef Name="id_user" />
           </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" />
           <Property Name="id_persona" Type="Int32" />
           <Property Name="denied" Type="Int32" Nullable="false" />
           <Property Name="phoneN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -364,6 +248,18 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           <Property Name="adminFB" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_user_id" FromRole="USER" ToRole="PERSONA" />
         </EntityType>
+        <Association Name="fk_persona_admin_id">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="ADMIN">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_persona_order">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
           <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
@@ -388,30 +284,6 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_persona_admin_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
-          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PERSONA">
-              <PropertyRef Name="id_persona" />
-            </Principal>
-            <Dependent Role="ADMIN">
-              <PropertyRef Name="id_persona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_persona_customerfb_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
-          <End Role="CUSTOMER_FB" Type="Self.CUSTOMER_FB" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PERSONA">
-              <PropertyRef Name="id_persona" />
-            </Principal>
-            <Dependent Role="CUSTOMER_FB">
-              <PropertyRef Name="id_persona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_persona_product_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
@@ -425,7 +297,7 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_persona_swrequest_id">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
           <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
@@ -448,27 +320,17 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_product_productfb_id">
-          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
-          <End Role="PRODUCT_FB" Type="Self.PRODUCT_FB" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCT">
-              <PropertyRef Name="id_product" />
-            </Principal>
-            <Dependent Role="PRODUCT_FB">
-              <PropertyRef Name="id_product" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CASASWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" />
           <EntitySet Name="ORDER" EntityType="Self.ORDER" />
           <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" />
-          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" />
-          <EntitySet Name="CUSTOMER_FB" EntityType="Self.CUSTOMER_FB" />
-          <EntitySet Name="PRODUCT_FB" EntityType="Self.PRODUCT_FB" />
           <EntitySet Name="SW_REQUEST" EntityType="Self.SW_REQUEST" />
           <EntitySet Name="USER" EntityType="Self.USER" />
+          <AssociationSet Name="fk_persona_admin_id" Association="Self.fk_persona_admin_id">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="ADMIN" EntitySet="ADMIN" />
+          </AssociationSet>
           <AssociationSet Name="fk_persona_order" Association="Self.fk_persona_order">
             <End Role="PERSONA" EntitySet="PERSONA" />
             <End Role="ORDER" EntitySet="ORDER" />
@@ -476,14 +338,6 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
           <AssociationSet Name="fk_product_order" Association="Self.fk_product_order">
             <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="ORDER" EntitySet="ORDER" />
-          </AssociationSet>
-          <AssociationSet Name="fk_persona_admin_id" Association="Self.fk_persona_admin_id">
-            <End Role="PERSONA" EntitySet="PERSONA" />
-            <End Role="ADMIN" EntitySet="ADMIN" />
-          </AssociationSet>
-          <AssociationSet Name="fk_persona_customerfb_id" Association="Self.fk_persona_customerfb_id">
-            <End Role="PERSONA" EntitySet="PERSONA" />
-            <End Role="CUSTOMER_FB" EntitySet="CUSTOMER_FB" />
           </AssociationSet>
           <AssociationSet Name="fk_persona_product_id" Association="Self.fk_persona_product_id">
             <End Role="PERSONA" EntitySet="PERSONA" />
@@ -497,10 +351,6 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
             <End Role="PERSONA" EntitySet="PERSONA" />
             <End Role="USER" EntitySet="USER" />
           </AssociationSet>
-          <AssociationSet Name="fk_product_productfb_id" Association="Self.fk_product_productfb_id">
-            <End Role="PRODUCT" EntitySet="PRODUCT" />
-            <End Role="PRODUCT_FB" EntitySet="PRODUCT_FB" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -508,6 +358,16 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CASASWModelStoreContainer" CdmEntityContainer="CASASWEntities">
+          <EntitySetMapping Name="ADMIN">
+            <EntityTypeMapping TypeName="CASASWModel.ADMIN">
+              <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ORDER">
             <EntityTypeMapping TypeName="CASASWModel.ORDER">
               <MappingFragment StoreEntitySet="ORDER">
@@ -544,45 +404,19 @@ advertencia 6002: La tabla o vista 'F:\DATA MILLER\DOCUMENTOS\U\SEMESTRE 6\PROYE
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ADMIN">
-            <EntityTypeMapping TypeName="CASASWModel.ADMIN">
-              <MappingFragment StoreEntitySet="ADMIN">
-                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
-                <ScalarProperty Name="rol" ColumnName="rol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CUSTOMER_FB">
-            <EntityTypeMapping TypeName="CASASWModel.CUSTOMER_FB">
-              <MappingFragment StoreEntitySet="CUSTOMER_FB">
-                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
-                <ScalarProperty Name="fdbDate" ColumnName="fdbDate" />
-                <ScalarProperty Name="rating" ColumnName="rating" />
-                <ScalarProperty Name="comment" ColumnName="comment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCT_FB">
-            <EntityTypeMapping TypeName="CASASWModel.PRODUCT_FB">
-              <MappingFragment StoreEntitySet="PRODUCT_FB">
-                <ScalarProperty Name="id_product" ColumnName="id_product" />
-                <ScalarProperty Name="fdbDate" ColumnName="fdbDate" />
-                <ScalarProperty Name="rating" ColumnName="rating" />
-                <ScalarProperty Name="comment" ColumnName="comment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SW_REQUEST">
             <EntityTypeMapping TypeName="CASASWModel.SW_REQUEST">
               <MappingFragment StoreEntitySet="SW_REQUEST">
+                <ScalarProperty Name="id_request" ColumnName="id_request" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
-                <ScalarProperty Name="specifiations" ColumnName="specifiations" />
+                <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USER">
             <EntityTypeMapping TypeName="CASASWModel.USER">
               <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="denied" ColumnName="denied" />
                 <ScalarProperty Name="phoneN" ColumnName="phoneN" />

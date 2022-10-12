@@ -14,8 +14,10 @@ namespace CasaSW.Models
     
     public partial class ADMIN
     {
-        public Nullable<int> id_persona { get; set; }
+        public int id_admin { get; set; }
+        public int id_persona { get; set; }
         public string rol { get; set; }
+        public int state { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }
     }

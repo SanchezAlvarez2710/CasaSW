@@ -14,6 +14,7 @@ namespace CasaSW.Models
     
     public partial class USER
     {
+        public int id_user { get; set; }
         public Nullable<int> id_persona { get; set; }
         public int denied { get; set; }
         public string phoneN { get; set; }
@@ -21,5 +22,18 @@ namespace CasaSW.Models
         public string adminFB { get; set; }
     
         public virtual PERSONA PERSONA { get; set; }
+
+        public USER()
+        {
+        }
+        public USER(int id_user, int? id_persona, int denied, string phoneN, DateTime signUpDate, string adminFB)
+        {
+            this.id_user = id_user;
+            this.id_persona = id_persona;
+            this.denied = denied;
+            this.phoneN = phoneN;
+            this.signUpDate = signUpDate;
+            this.adminFB = adminFB;
+        }
     }
 }

@@ -18,7 +18,6 @@ namespace CasaSW.Models
         public PRODUCT()
         {
             this.ORDER = new HashSet<ORDER>();
-            this.PRODUCT_FB = new HashSet<PRODUCT_FB>();
         }
     
         public int id_product { get; set; }
@@ -31,7 +30,14 @@ namespace CasaSW.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDER { get; set; }
         public virtual PERSONA PERSONA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT_FB> PRODUCT_FB { get; set; }
+        public PRODUCT(int id_product, int? id_persona, string name, string type, string version, string description)
+        {
+            this.id_product = id_product;
+            this.id_persona = id_persona;
+            this.name = name;
+            this.type = type;
+            this.version = version;
+            this.description = description;
+        }
     }
 }

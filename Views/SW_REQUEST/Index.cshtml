@@ -1,9 +1,9 @@
-﻿@model IEnumerable<CasaSW.Models.SW_REQUEST>
+﻿@model IEnumerable<CasaSW.Models.ViewModel.RequestPOCP>
 
 @{
     ViewBag.Title = "Submit Requests";
     ViewBag.Guide = "Request";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutSAC.cshtml";
 }
 <link rel="stylesheet" href="~/Content/swrequest.css" />
 
@@ -16,37 +16,37 @@
             @* CLIENT INFO *@
             <fieldset class="customer-section">
                 <legend>Customer info</legend>
-                <label for="cname">Name</label>
-                <input type="text" required id="cname" placeholder="Name" />
-                <label for="cusername">Username</label>
-                <input type="text" required id="cusername" placeholder="Username" />
-                <label for="cpass">Password</label>
-                <input type="text" required id="cpass" placeholder="Password" />
                 <label for="cid">Identification</label>
-                <input type="text" required id="cid" placeholder="Identification" />
-                <label for="cnumber">Number</label>
-                <input type="text" required id="cnumber" placeholder="Number" />
+                <input type="text" required id="cid" placeholder="Identification" name="id_persona" />
+                <label for="cname">Name</label>
+                <input type="text" required id="cname" placeholder="Name" name="Name_" />
+                <label for="cusername">Username</label>
+                <input type="text" required id="cusername" placeholder="Username" name="username_persona" />
+                <label for="cpass">Password</label>
+                <input type="text" required id="cpass" placeholder="Password" name="Password_" />
                 <label for="cemail">Email</label>
-                <input type="text" required id="cemail" placeholder="Email" />
+                <input type="text" required id="cemail" placeholder="Email" name="Email_" />
+                <label for="cnumber">Number</label>
+                <input type="text" required id="cnumber" placeholder="PhoneNumber" name="PhoneN_" />
             </fieldset>
             @* PRODUCT INFO *@
             <fieldset class="product-section">
                 <legend>Product info</legend>
                 <label for="pname">Name</label>
-                <input type="text" required id="pname" placeholder="Name" />
+                <input type="text" required id="pname" placeholder="Name" name="product_name" />
                 <label for="ptype">Type</label>
-                <select id="prodtype" required name="typepr" onchange="select()">
+                <select id="prodtype" required name="product_type" onchange="select()">
                     <option value="" selected data-default>--Select product type</option>
                     <option value="Web app">Web application</option>
                     <option value="Desktop app">Desktop application</option>
                     <option value="Other">Other</option>
                 </select>
-                <input type="text" required id="pother" placeholder="What product would you like?" />
+                @*<input type="text" required id="pother" placeholder="What product would you like?" /> if user choose "other" option*@
                 <label for="pdesc">Description</label>
-                <textarea required id="pdesc" placeholder="Describe the product..."></textarea>
+                <textarea required id="pdesc" placeholder="Describe the product..." name="product_description"></textarea>
             </fieldset>
             <div class="form-buttons">
-                <input type="submit" value="Submit" />                
+                <input type="submit" value="Submit" />
                 <input type="button" value="Clean" onclick="clean()" />
             </div>
         </form>

@@ -4,23 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c61e446fcf9c41bca97511a837c0b797" Name="Diagram1">
-        <EntityTypeShape EntityType="CASASWModel.ORDER" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.PERSONA" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.PRODUCT" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.ADMIN" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.CUSTOMER_FB" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.PRODUCT_FB" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.SW_REQUEST" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.USER" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+      <Diagram DiagramId="0f8e16330ffd4d879b95e7deed68dcdf" Name="Diagram1">
+        <EntityTypeShape EntityType="CASASWModel.ADMIN" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.ORDER" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.PERSONA" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.PRODUCT" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.SW_REQUEST" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.USER" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="CASASWModel.fk_persona_admin_id" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_persona_order" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_product_order" ManuallyRouted="false" />
-        <AssociationConnector Association="CASASWModel.fk_persona_admin_id" ManuallyRouted="false" />
-        <AssociationConnector Association="CASASWModel.fk_persona_customerfb_id" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_persona_product_id" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_persona_swrequest_id" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_persona_user_id" ManuallyRouted="false" />
-        <AssociationConnector Association="CASASWModel.fk_product_productfb_id" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
