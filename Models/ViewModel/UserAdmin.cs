@@ -14,10 +14,7 @@ namespace CasaSW.Models.ViewModel
         public string ConfirmarPassword { get; set; }
         public string name { get; set; }
         public string email { get; set; }
-<<<<<<< HEAD
         public string avatar { get; set; }
         public int state { get; set; }
-=======
->>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
     }
 }

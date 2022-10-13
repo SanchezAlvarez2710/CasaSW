@@ -14,7 +14,6 @@ using System.Text;
 
 namespace CasaSW.Controllers
 {
-    //[ValidarSesion]
     public class SW_REQUESTController : Controller
     {
         private CASASWEntities db = new CASASWEntities();

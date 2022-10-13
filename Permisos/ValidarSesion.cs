@@ -10,21 +10,6 @@ namespace CasaSW.Permisos
 {
     public class ValidarSesion : ActionFilterAttribute
     {
-        //public override void OnActionExecuting(ActionExecutingContext filterContext)
-        //{
-        //    if (HttpContext.Current.Session["usuario"] == null)
-        //    {
-        //        filterContext.Result = new RedirectResult("~/LOGIN/Login");
-        //    }
-        //    //else
-        //    //{
-        //    //    filterContext.Result = new RedirectResult("~/Shared/_Layout");
-        //    //}
-
-
-        //    base.OnActionExecuting(filterContext);
-        //}
-
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var oUser = (UserAdmin)HttpContext.Current.Session["usuario"];

@@ -25,56 +25,6 @@ namespace CasaSW.Controllers
             return View();
         }
 
-        //public ActionResult Registrar()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult Registrar(UserAdmin oUsuario)
-        //{
-        //    bool registrado;
-        //    string mensaje;
-
-        //    if(oUsuario.Password == oUsuario.ConfirmarPassword)
-        //    {
-        //        oUsuario.Password = ConvertirSha256(oUsuario.Password);
-        //    }
-        //    else
-        //    {
-        //        ViewData["Mensaje"] = "Las contraseñas no coinciden";
-        //        return View();
-        //    }
-
-        //    using (SqlConnection cn = new SqlConnection(cadena))
-        //    {
-        //        SqlCommand cmd = new SqlCommand("sp_RegistrarUsuario", cn);
-        //        cmd.Parameters.AddWithValue("Username", oUsuario.Username);
-        //        cmd.Parameters.AddWithValue("Password", oUsuario.Password);
-        //        cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-        //        cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-        //        cmd.CommandType = CommandType.StoredProcedure;
-
-        //        cn.Open();
-
-        //        cmd.ExecuteNonQuery();
-
-        //        registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
-        //        mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-        //    }
-
-        //    ViewData["Mensaje"] = mensaje;
-
-        //    if (registrado)
-        //    {
-        //        return RedirectToAction("Login", "LOGIN");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
-
         [HttpPost]
         public ActionResult Login(UserAdmin oUsuario)
         {
@@ -90,7 +40,7 @@ namespace CasaSW.Controllers
                              Password = o.password,
                              Rol = p.rol
                          };
-<<<<<<< HEAD
+
             //try
             //{
             //    acceso.Any();
@@ -108,20 +58,6 @@ namespace CasaSW.Controllers
                 Session["usuario"] = oUsuario;
                 return RedirectToAction("Index", "HOME");
                 
-=======
-
-            if (acceso.Any())
-            {
-                if (acceso.ElementAt(0).Password == oUsuario.Password)
-                {
-                    var condicion = acceso.ElementAt(0).Rol.ToLower();
-                    oUsuario.Rol = condicion;
-                    Session["usuario"] = oUsuario;
-                    return RedirectToAction("Index", "HOME");
-                }
-                ViewData["Mensaje"] = "Contraseña incorrecta";
-                return View();
->>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
             }            
             ViewData["Mensaje"] = "Usuario o contraseña incorrectos";
             return View();            
