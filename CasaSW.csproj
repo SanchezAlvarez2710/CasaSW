@@ -203,6 +203,7 @@
       <DependentUpon>ModelDAO.edmx</DependentUpon>
       <LastGenOutput>ModelDAO.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\customers.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
     <Content Include="Scripts\request.js" />
     <Content Include="Web.config" />

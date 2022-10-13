@@ -68,16 +68,8 @@ namespace CasaSW.Controllers
         // GET: PERSONAs/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PERSONA pERSONA = db.PERSONA.Find(id);
-            if (pERSONA == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pERSONA);
+               
+            return PartialView();
         }
 
         // GET: PERSONAs/Create

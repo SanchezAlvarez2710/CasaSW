@@ -95,7 +95,7 @@
     }
 
 hr {
-    border-top: 1px solid red;
+    border-top: 1px solid;
     border-style: solid;
     margin: 1rem 0 0 0;
     border-color: var(--secundary);
