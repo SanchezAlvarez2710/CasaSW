@@ -42,10 +42,18 @@
                     <p>
                         <b>Order name: @Html.DisplayFor(modelItem => item.orderName_)</b>
                     </p>
+
                     <div class="order-state">
                         <b>Order state: @Html.DisplayFor(modelItem => item.state_)</b>
-                        <p>@Html.ActionLink("Finish", "Finish", new { id = item.id_order_ }, new { @class = "end-order" })</p>
+                        @{
+                            var state = item.state_;
+                            if (state.ToLower() == "in process")
+                            {
+                                <p>@Html.ActionLink("Finish", "Finish", new { id = item.id_product_ }, new { @class = "end-order" })</p>
+                            }
+                        }
                     </div>
+
                     <div class="product-section">
                         <p>
                             <b>Product Info</b>

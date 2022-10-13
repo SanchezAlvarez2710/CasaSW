@@ -7,6 +7,7 @@ using CasaSW.Models.ViewModel;
 using CasaSW.Models;
 using CasaSW.Permisos;
 using System.Collections.Generic;
+using System.Web.UI;
 
 namespace CasaSW.Controllers
 {
@@ -110,7 +111,20 @@ namespace CasaSW.Controllers
 
             return View(pERSONA);
         }
+        //FINISHED ODER
+        public ActionResult Finish(int? id)
+        {
+            ORDER oSTATE = db.ORDER.Find(id);
+            oSTATE.state = "FINISHED";
+            if (ModelState.IsValid)
+            {
+                db.Entry(oSTATE).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(oSTATE);
 
+        }
         // GET: PERSONAs/Edit/5
         public ActionResult Edit(int? id)
         {
