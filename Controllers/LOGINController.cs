@@ -90,6 +90,7 @@ namespace CasaSW.Controllers
                              Password = o.password,
                              Rol = p.rol
                          };
+<<<<<<< HEAD
             //try
             //{
             //    acceso.Any();
@@ -107,6 +108,20 @@ namespace CasaSW.Controllers
                 Session["usuario"] = oUsuario;
                 return RedirectToAction("Index", "HOME");
                 
+=======
+
+            if (acceso.Any())
+            {
+                if (acceso.ElementAt(0).Password == oUsuario.Password)
+                {
+                    var condicion = acceso.ElementAt(0).Rol.ToLower();
+                    oUsuario.Rol = condicion;
+                    Session["usuario"] = oUsuario;
+                    return RedirectToAction("Index", "HOME");
+                }
+                ViewData["Mensaje"] = "Contraseña incorrecta";
+                return View();
+>>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
             }            
             ViewData["Mensaje"] = "Usuario o contraseña incorrectos";
             return View();            

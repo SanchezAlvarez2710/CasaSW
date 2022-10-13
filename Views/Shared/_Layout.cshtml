@@ -1,7 +1,7 @@
 ﻿@{ 
-    CasaSW.Models.ViewModel.UserAdmin oUsuario;
-    oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
-    var condicion = oUsuario.Rol.ToLower();
+CasaSW.Models.ViewModel.UserAdmin oUsuario;
+oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
+//var condicion = oUsuario.Rol.ToLower();
 }
 
 <!DOCTYPE html>
@@ -42,20 +42,36 @@
                     @Html.ActionLink("Home", "Index", "HOME");
                     @Html.ActionLink("Request", "Index", "SW_REQUEST");
                     @Html.ActionLink("Customers", "Index", "CUSTOMERS");
+<<<<<<< HEAD
                     @Html.ActionLink("Stock", "Stock", "HOME");                    
                     switch (condicion)
+=======
+                    @Html.ActionLink("Stock", "Stock", "HOME");
+                    @*switch (condicion)
+>>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
                     {
                         case "sac":
                             @Html.ActionLink("Support", "Index", "");
                             break;
+<<<<<<< HEAD
                         case "admin":
                             @Html.ActionLink("Management", "Index", "MANAGEMENT");
                             break;
                     }
+=======
+                        case "admin":*@
+                            @Html.ActionLink("Management", "Index", "MANAGEMENT");
+                            @*break;
+                    }*@
+>>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
                 }
             </nav>
             <div class="user-icon">
                 <div>
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
                     <p>@oUsuario.Username</p>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="56"
                          height="56" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbbbbb" fill="none"

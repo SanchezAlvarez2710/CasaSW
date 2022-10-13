@@ -23,7 +23,11 @@ namespace CasaSW.Models
 
         public ADMIN(int? id_persona, string rol)
         {
+<<<<<<< HEAD
             this.id_persona = (int)id_persona;
+=======
+            this.id_persona = id_persona;
+>>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
             this.rol = rol;
         }
         public ADMIN()

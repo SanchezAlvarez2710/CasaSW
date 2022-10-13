@@ -38,7 +38,20 @@ namespace CasaSW.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SW_REQUEST> sW_REQUEST { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< HEAD
         public virtual ICollection<USER> uSER { get; set; }
 
+=======
+        public virtual ICollection<USER> USER { get; set; }
+
+        public PERSONA(int id_persona, string username, string password, string name, string email)
+        {
+            this.id_persona = id_persona;
+            this.username = username;
+            this.password = password;
+            this.name = name;
+            this.email = email;
+        }
+>>>>>>> 774fa1bd1398e6b159266155379f2130a307feb3
     }
 }
