@@ -181,6 +181,7 @@
     <Content Include="App_Data\CASASW_log.ldf">
       <DependentUpon>CASASW.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\customersdetails.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\customers.css" />
@@ -244,6 +245,7 @@
       <DependentUpon>ModelDAO.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="Views\CUSTOMERS\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

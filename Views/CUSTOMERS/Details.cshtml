@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CasaSW.Models.ViewModel.CustomerPersona>
+
+@{
+    
+}
+
+<link rel="stylesheet" href="~/Content/customersdetails.css" />
+
+<div class="modal-container">
+    <div class="modal-details">
+        <div class="btn-close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#1b1d28" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>
+                    View details for
+                </p>
+                <p>
+                    { Id: @Html.DisplayFor(model => model.ElementAt(0).Id_)
+                </p>
+                <p>
+                    Username: @Html.DisplayFor(model => model.ElementAt(0).Username_) }
+                </p>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Name
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.ElementAt(0).Name_)
+                </p>
+                <p>
+                    Email
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.ElementAt(0).Email_)
+                </p>
+                <p>
+                    Phone Number
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.ElementAt(0).PhoneN_)
+                </p>
+                <p>
+                    SignUp Date
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.ElementAt(0).signUpDate_)
+                </p>
+                <p>
+                    Is Denied
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.ElementAt(0).Denied_)
+                </p>
+                <div class="adm-fb">
+                    <p>
+                        Admin FeedBack
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.ElementAt(0).AdminFB_)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

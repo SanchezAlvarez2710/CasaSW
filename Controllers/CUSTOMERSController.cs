@@ -65,13 +65,29 @@ namespace CasaSW.Controllers
             }
             return View(OrderProduct);
         }
-        // GET: PERSONAs/Details/5
-        public ActionResult Details(int? id)
+        // GET: CustomerPersona/Details/      
+        [HttpGet]
+        public PartialViewResult Details(int? id)
         {
-               
-            return PartialView();
+            var CustomerPersona = from p in db.PERSONA
+                                  join u in db.USER on p.id_persona equals u.id_persona
+                                  where p.id_persona == id
+                                  select new CustomerPersona
+                                  {
+                                      Id_ = p.id_persona,
+                                      Username_ = p.username,
+                                      Password_ = p.password,
+                                      Name_ = p.name,
+                                      Email_ = p.email,
+                                      Denied_ = u.denied,
+                                      PhoneN_ = u.phoneN,
+                                      signUpDate_ = u.signUpDate,
+                                      AdminFB_ = u.adminFB
+                                  };
+            return PartialView(CustomerPersona);
         }
-
+        
+        
         // GET: PERSONAs/Create
         public ActionResult Create()
         {
