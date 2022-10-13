@@ -11,9 +11,11 @@ using CasaSW.Models.ViewModel;
 using CasaSW.Permisos;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.Entity.Validation;
 
 namespace CasaSW.Controllers
 {
+   // [ValidarSesion]
     public class MANAGEMENTController : Controller
     {
         private CASASWEntities db = new CASASWEntities();
@@ -22,7 +24,7 @@ namespace CasaSW.Controllers
         {
             var UserAdmin = from o in db.PERSONA
                             join p in db.ADMIN on o.id_persona equals p.id_persona
-                            where p.rol == "SAC"
+                            where p.rol == "SAC" && p.state == 1
                             select new UserAdmin
                             {
                                 IdUsuario = (int)p.id_persona,
@@ -30,7 +32,9 @@ namespace CasaSW.Controllers
                                 Password = o.password,
                                 name = o.name,
                                 email = o.email,
-                                Rol = p.rol
+                                Rol = p.rol,
+                                avatar = p.avatar,
+                                state = p.state
                             };                 
             return View(UserAdmin);
         }
@@ -45,11 +49,13 @@ namespace CasaSW.Controllers
             UserAdmin model = new UserAdmin();
 
             var oUser = db.PERSONA.Find(id);
+            var oAdmin = db.ADMIN.Find(id);
             model.Username = oUser.username;
             model.email = oUser.email;
             model.name = oUser.name;
             model.IdUsuario = id;
             model.Password = oUser.password;
+            model.avatar = oAdmin.avatar;
 
             return View(model);
         }
@@ -72,7 +78,7 @@ namespace CasaSW.Controllers
 
             IEnumerable<CasaSW.Models.ViewModel.UserAdmin> acceso = from o in db.PERSONA
                                                                     join p in db.ADMIN on o.id_persona equals p.id_persona
-                                                                    where o.username == oUsuario.Username
+                                                                    where o.username == oUsuario.Username && p.state == 1
                                                                     select new UserAdmin
                                                                     {
                                                                         IdUsuario = (int)p.id_persona,
@@ -82,11 +88,30 @@ namespace CasaSW.Controllers
                                                                     };
             if (!acceso.Any())
             {
-                PERSONA pERSONA = new PERSONA(oUsuario.IdUsuario, oUsuario.Username, oUsuario.Password, oUsuario.name, oUsuario.email);
-                ADMIN aDMIN = new ADMIN(oUsuario.IdUsuario, "SAC");
+                PERSONA pERSONA = new PERSONA();
+                ADMIN aDMIN = new ADMIN();
+
+                pERSONA.id_persona = oUsuario.IdUsuario;
+                pERSONA.username = oUsuario.Username;
+                pERSONA.password = oUsuario.Password;
+                pERSONA.email = oUsuario.email;
+                pERSONA.name = oUsuario.name;
+                aDMIN.id_persona = oUsuario.IdUsuario;
+                aDMIN.state = 1;
+                aDMIN.rol = "SAC";
+                aDMIN.avatar = oUsuario.avatar;
+
                 db.PERSONA.Add(pERSONA);
                 db.ADMIN.Add(aDMIN);
-                db.SaveChanges();
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    Console.WriteLine(e);
+                }
                 ViewData["Mensaje"] = "Usuario Creado";
 
                 return Redirect(Url.Content("~/MANAGEMENT/"));
@@ -111,10 +136,12 @@ namespace CasaSW.Controllers
             }
   
             var oUser = db.PERSONA.Find(oUsuario.IdUsuario);
+            var oAdmin = db.ADMIN.Find(oUsuario.IdUsuario);
+
+            oAdmin.avatar = oUsuario.avatar;
             oUser.username = oUsuario.Username;
             oUser.email = oUsuario.email;
             oUser.name = oUsuario.name;
-            oUser.id_persona = oUsuario.IdUsuario;
 
             if(oUsuario.Password != null && oUsuario.Password.Trim() != "")
             {
@@ -122,8 +149,16 @@ namespace CasaSW.Controllers
             }
 
             db.Entry(oUser).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-
+            db.Entry(oAdmin).State = System.Data.Entity.EntityState.Modified;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch(DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+            }
+            
             return Redirect(Url.Content("~/MANAGEMENT/"));
                       
         }
@@ -131,10 +166,9 @@ namespace CasaSW.Controllers
         public ActionResult Delete(int id)
         {
             
-
             var oUser = db.ADMIN.Find(id);
             
-           // oUser.estado = 3;  1=activo, 2=inactivo, 3=eliminado          
+            oUser.state = 3;  //1=activo, 2=inactivo, 3=eliminado          
 
             db.Entry(oUser).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
