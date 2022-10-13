@@ -14,7 +14,6 @@ namespace CasaSW.Models
     
     public partial class SW_REQUEST
     {
-        public int id_request { get; set; }
         public int id_persona { get; set; }
         public string description { get; set; }
     

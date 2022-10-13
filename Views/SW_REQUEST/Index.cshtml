@@ -30,24 +30,25 @@
                 <input type="tel" required id="cnumber" placeholder="PhoneNumber" name="PhoneN_" />
             </fieldset>
             @* PRODUCT INFO *@
-            <fieldset class="product-section">
-                <legend>Product info</legend>
-                <label for="pname">Name</label>
-                <input type="text" required id="pname" placeholder="Name" name="product_name" />
-                <label>Type<input name="product_type" list="prodtype" placeholder="Product type"/></label>
-                <datalist id="prodtype" required onchange="select()">
-                    <option value="" selected data-default>--Select product type</option>
-                    <option value="Web app">Web application</option>
-                    <option value="Desktop app">Desktop application</option>
-                    <option value="Other">Other</option>
-                </datalist>
-                @*<input type="text" required id="pother" placeholder="What product would you like?" /> if user choose "other" option*@
-                <label for="pdesc">Description</label>
-                <textarea required id="pdesc" placeholder="Describe the product..." name="product_description"></textarea>
-            </fieldset>
+        <fieldset class="product-section">
+            <legend>Product info</legend>
+            <label for="pname">Name</label>
+            <input type="text" required id="pname" placeholder="Name" name="product_name" />
+            <label>Type</label>
+            <input name="product_type" list="prodtype" placeholder="Product type" />
+            <datalist id="prodtype" required onchange="select()">
+                <option value="" selected data-default>--Select product type</option>
+                <option value="Web app">Web application</option>
+                <option value="Desktop app">Desktop application</option>
+                <option value="Other">Other</option>
+            </datalist>
+            @*<input type="text" required id="pother" placeholder="What product would you like?" /> if user choose "other" option*@
+            <label for="pdesc">Description</label>
+            <textarea required id="pdesc" placeholder="Describe the product..." name="product_description"></textarea>
+        </fieldset>
             <div class="form-buttons">
                 <input type="submit" value="Submit" />
-                <input type="button" value="Clean" onclick="clean()" />
+                <input type="button" value="Clean" class="bt-clean"/>
             </div>
         </form>
     </div>

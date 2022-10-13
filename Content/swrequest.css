@@ -67,7 +67,7 @@
         color: var(--dark);
     }
 
-    .form-request input[type="text"], .form-request textarea, select {
+    .form-request input, .form-request textarea{
         padding: .6rem .8rem;
         grid-column: 2;
         border-radius: 5px;

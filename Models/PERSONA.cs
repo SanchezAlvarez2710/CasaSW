@@ -17,11 +17,8 @@ namespace CasaSW.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PERSONA()
         {
-            this.ADMIN = new HashSet<ADMIN>();
             this.ORDER = new HashSet<ORDER>();
             this.PRODUCT = new HashSet<PRODUCT>();
-            this.SW_REQUEST = new HashSet<SW_REQUEST>();
-            this.USER = new HashSet<USER>();
         }
     
         public int id_persona { get; set; }
@@ -30,15 +27,12 @@ namespace CasaSW.Models
         public string name { get; set; }
         public string email { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ADMIN> ADMIN { get; set; }
+        public virtual ADMIN ADMIN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCT { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SW_REQUEST> SW_REQUEST { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<USER> USER { get; set; }
+        public virtual SW_REQUEST SW_REQUEST { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

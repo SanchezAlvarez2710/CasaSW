@@ -7,9 +7,8 @@
       <Schema Namespace="CASASWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMIN">
           <Key>
-            <PropertyRef Name="id_admin" />
+            <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="state" Type="int" Nullable="false" />
@@ -17,9 +16,8 @@
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
-            <PropertyRef Name="id_order" />
+            <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_product" Type="int" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="orderName" Type="varchar" MaxLength="30" Nullable="false" />
@@ -50,17 +48,15 @@
         </EntityType>
         <EntityType Name="SW_REQUEST">
           <Key>
-            <PropertyRef Name="id_request" />
+            <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_request" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
-            <PropertyRef Name="id_user" />
+            <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="denied" Type="int" Nullable="false" />
           <Property Name="phoneN" Type="varchar" MaxLength="20" Nullable="false" />
@@ -69,7 +65,7 @@
         </EntityType>
         <Association Name="fk_persona_admin_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
@@ -105,7 +101,7 @@
         </Association>
         <Association Name="fk_persona_swrequest_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="*" />
+          <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
@@ -117,7 +113,7 @@
         </Association>
         <Association Name="fk_persona_user_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
@@ -129,7 +125,7 @@
         </Association>
         <Association Name="fk_product_order">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PRODUCT">
               <PropertyRef Name="id_product" />
@@ -178,9 +174,8 @@
       <Schema Namespace="CASASWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ADMIN">
           <Key>
-            <PropertyRef Name="id_admin" />
+            <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="state" Type="Int32" Nullable="false" />
@@ -189,9 +184,8 @@
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
-            <PropertyRef Name="id_order" />
+            <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_product" Type="Int32" Nullable="false" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="orderName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
@@ -231,18 +225,16 @@
         </EntityType>
         <EntityType Name="SW_REQUEST">
           <Key>
-            <PropertyRef Name="id_request" />
+            <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_request" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_swrequest_id" FromRole="SW_REQUEST" ToRole="PERSONA" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
-            <PropertyRef Name="id_user" />
+            <PropertyRef Name="id_persona" />
           </Key>
-          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="denied" Type="Int32" Nullable="false" />
           <Property Name="phoneN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -252,7 +244,7 @@
         </EntityType>
         <Association Name="fk_persona_admin_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="*" />
+          <End Role="ADMIN" Type="Self.ADMIN" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
@@ -276,7 +268,7 @@
         </Association>
         <Association Name="fk_product_order">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PRODUCT">
               <PropertyRef Name="id_product" />
@@ -300,7 +292,7 @@
         </Association>
         <Association Name="fk_persona_swrequest_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="*" />
+          <End Role="SW_REQUEST" Type="Self.SW_REQUEST" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
@@ -312,7 +304,7 @@
         </Association>
         <Association Name="fk_persona_user_id">
           <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="PERSONA">
               <PropertyRef Name="id_persona" />
@@ -363,7 +355,6 @@
           <EntitySetMapping Name="ADMIN">
             <EntityTypeMapping TypeName="CASASWModel.ADMIN">
               <MappingFragment StoreEntitySet="ADMIN">
-                <ScalarProperty Name="id_admin" ColumnName="id_admin" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="rol" ColumnName="rol" />
                 <ScalarProperty Name="state" ColumnName="state" />
@@ -374,7 +365,6 @@
           <EntitySetMapping Name="ORDER">
             <EntityTypeMapping TypeName="CASASWModel.ORDER">
               <MappingFragment StoreEntitySet="ORDER">
-                <ScalarProperty Name="id_order" ColumnName="id_order" />
                 <ScalarProperty Name="id_product" ColumnName="id_product" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="orderName" ColumnName="orderName" />
@@ -410,7 +400,6 @@
           <EntitySetMapping Name="SW_REQUEST">
             <EntityTypeMapping TypeName="CASASWModel.SW_REQUEST">
               <MappingFragment StoreEntitySet="SW_REQUEST">
-                <ScalarProperty Name="id_request" ColumnName="id_request" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
@@ -419,7 +408,6 @@
           <EntitySetMapping Name="USER">
             <EntityTypeMapping TypeName="CASASWModel.USER">
               <MappingFragment StoreEntitySet="USER">
-                <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="denied" ColumnName="denied" />
                 <ScalarProperty Name="phoneN" ColumnName="phoneN" />

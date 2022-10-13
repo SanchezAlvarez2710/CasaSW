@@ -14,7 +14,6 @@ namespace CasaSW.Models
     
     public partial class USER
     {
-        public int id_user { get; set; }
         public int id_persona { get; set; }
         public int denied { get; set; }
         public string phoneN { get; set; }

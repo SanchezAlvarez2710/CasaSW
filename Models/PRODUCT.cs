@@ -14,12 +14,6 @@ namespace CasaSW.Models
     
     public partial class PRODUCT
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUCT()
-        {
-            this.ORDER = new HashSet<ORDER>();
-        }
-    
         public int id_product { get; set; }
         public int id_persona { get; set; }
         public string name { get; set; }
@@ -27,8 +21,7 @@ namespace CasaSW.Models
         public string version { get; set; }
         public string description { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDER { get; set; }
+        public virtual ORDER ORDER { get; set; }
         public virtual PERSONA PERSONA { get; set; }
     }
 }

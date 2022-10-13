@@ -14,18 +14,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/normalize.css" />
+    @*<link rel="stylesheet" href="~/css/normalize.css" />*@
     <link rel="stylesheet" href="~/Content/stylesheet.css" />
 </head>
 <body>
-    <header>
-        <div class="bg-active">
-        </div>
+    <div class="header">
         <div class="nav-tl">
             <div>
                 <p>@ViewBag.Guide</p>
             </div>
-            <input type="checkbox" id="hamburger-mn">
             <label for="hamburger-mn" class="lbl-hm">
                 <!-- label hamburger menu-->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="25"
@@ -37,12 +34,15 @@
                     <line x1="4" y1="18" x2="20" y2="18" />
                 </svg>
             </label>
+            <input type="checkbox" id="hamburger-mn">
+            <div class="bg-active">
+            </div>
             <nav class="nav-pr">
                 @{
                     @Html.ActionLink("Home", "Index", "HOME");
                     @Html.ActionLink("Request", "Index", "SW_REQUEST");
                     @Html.ActionLink("Customers", "Index", "CUSTOMERS");
-                    @Html.ActionLink("Stock", "Stock", "HOME");
+                    @Html.ActionLink("Stock", "Stock", "HOME");                    
                     switch (condicion)
                     {
                         case "sac":
@@ -53,7 +53,6 @@
                             break;
                     }
                 }
-
             </nav>
             <div class="user-icon">
                 <div>
@@ -69,9 +68,10 @@
                 </div>
             </div>
         </div>
-    </header>
+    </div>
     <div>
         @RenderBody()
     </div>
+    @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

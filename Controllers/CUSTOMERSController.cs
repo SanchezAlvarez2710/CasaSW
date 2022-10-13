@@ -48,8 +48,7 @@ namespace CasaSW.Controllers
                                select new OrderProduct
                                {
                                    id_persona_ = (int)p.id_persona,
-                                   username_persona = pERSONA.username,
-                                   id_order_ = o.id_order,
+                                   username_persona = pERSONA.username,                                   
                                    orderName_ = o.orderName,
                                    state_ = o.state,
                                    subtotal_ = o.subtotal,
@@ -135,27 +134,13 @@ namespace CasaSW.Controllers
             return View(pERSONA);
         }
 
-        // GET: PERSONAs/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PERSONA pERSONA = db.PERSONA.Find(id);
-            if (pERSONA == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pERSONA);
-        }
-
         // POST: PERSONAs/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             PERSONA pERSONA = db.PERSONA.Find(id);
+            USER uSER = db.USER.Find();
             db.PERSONA.Remove(pERSONA);
             db.SaveChanges();
             return RedirectToAction("Index");

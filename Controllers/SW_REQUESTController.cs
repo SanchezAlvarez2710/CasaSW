@@ -104,8 +104,7 @@ namespace CasaSW.Controllers
                     pRODUCT.version = "";
                     pRODUCT.description = requestPOCP.product_description;
                 //ORDER
-                    ORDER oRDER = new ORDER();
-                    oRDER.id_order = requestPOCP.id_order_;
+                    ORDER oRDER = new ORDER();                    
                     oRDER.id_product = requestPOCP.id_product_;
                     oRDER.id_persona = requestPOCP.id_persona;
                     oRDER.orderName = requestPOCP.product_name + " Order";

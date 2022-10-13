@@ -11,7 +11,7 @@ html {
     font-family: 'Fredoka One', cursive;
 }
 
-header {
+.header {
     background-color: var(--primary);
     color: var(--secundary);
     position: fixed;
@@ -57,7 +57,7 @@ h3 {
     font-size: 1.8rem;
 }
 
-.nav-tl div {
+.nav-tl div:not(.bg-active){
     display: flex;
     align-items: center;
 }
@@ -119,14 +119,16 @@ h3 {
         display: block;
     }
     .bg-active{
-        position: center;
+        position: fixed;
+        margin-top: 26.3rem;
         width: 100vw;
         height: 100vh;
         z-index: 0;
         display: none;
     }
 
-    #hamburger-mn:checked ~ .bg-active{        
+    #hamburger-mn:checked ~ .bg-active{  
+        display: block;
         background-color: #11111140;
     }
 

@@ -14,7 +14,6 @@ namespace CasaSW.Models
     
     public partial class ORDER
     {
-        public int id_order { get; set; }
         public int id_product { get; set; }
         public int id_persona { get; set; }
         public string orderName { get; set; }
