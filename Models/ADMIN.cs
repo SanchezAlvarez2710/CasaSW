@@ -23,7 +23,7 @@ namespace CasaSW.Models
 
         public ADMIN(int? id_persona, string rol)
         {
-            this.id_persona = id_persona;
+            this.id_persona = (int)id_persona;
             this.rol = rol;
         }
         public ADMIN()

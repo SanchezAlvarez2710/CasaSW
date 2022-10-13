@@ -62,7 +62,7 @@
 <script>
     function jsDelete(id) {
         if (confirm("Estas seguro de eliminar?")) {
-            url = "@Url.Content("~/MANAGEMENT/Edit")" + "/" + id;
+            url = "@Url.Content("~/MANAGEMENT/Delete")" + "/" + id;
 
             $.post(url, function (data) {
                 if (data == "1") {

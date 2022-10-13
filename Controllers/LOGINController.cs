@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.Ajax.Utilities;
 using System.Runtime.CompilerServices;
+using System.Data.Entity.Core;
 
 namespace CasaSW.Controllers
 {
@@ -81,7 +82,7 @@ namespace CasaSW.Controllers
          
             IEnumerable<CasaSW.Models.ViewModel.UserAdmin> acceso = from o in db.PERSONA
                          join p in db.ADMIN on o.id_persona equals p.id_persona
-                         where o.username == oUsuario.Username 
+                         where o.username == oUsuario.Username && o.password == oUsuario.Password 
                          select new UserAdmin
                          {
                              IdUsuario = (int)p.id_persona,
@@ -89,20 +90,25 @@ namespace CasaSW.Controllers
                              Password = o.password,
                              Rol = p.rol
                          };
+            //try
+            //{
+            //    acceso.Any();
+            //}
+            //catch(EntityException e)
+            //{
+            //    Console.WriteLine(e);
+            //}
 
             if (acceso.Any())
             {
-                if (acceso.ElementAt(0).Password == oUsuario.Password)
-                {
-                    var condicion = acceso.ElementAt(0).Rol.ToLower();
-                    oUsuario.Rol = condicion;
-                    Session["usuario"] = oUsuario;
-                    return RedirectToAction("Index", "HOME");
-                }
-                ViewData["Mensaje"] = "Contraseña incorrecta";
-                return View();
+               
+                var condicion = acceso.ElementAt(0).Rol.ToLower();
+                oUsuario.Rol = condicion;
+                Session["usuario"] = oUsuario;
+                return RedirectToAction("Index", "HOME");
+                
             }            
-            ViewData["Mensaje"] = "Usuario no encontrado";
+            ViewData["Mensaje"] = "Usuario o contraseña incorrectos";
             return View();            
         }
 

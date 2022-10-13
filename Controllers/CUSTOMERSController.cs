@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace CasaSW.Controllers
 {
-    //[ValidarSesion]
+   // [ValidarSesion]
     public class CUSTOMERSController : Controller
     {
         private CASASWEntities db = new CASASWEntities();
