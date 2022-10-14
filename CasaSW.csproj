@@ -132,6 +132,7 @@
     <Compile Include="Controllers\LOGINController.cs" />
     <Compile Include="Controllers\HOMEController.cs" />
     <Compile Include="Controllers\CUSTOMERSController.cs" />
+    <Compile Include="Controllers\LOGOUTController.cs" />
     <Compile Include="Controllers\MANAGEMENTController.cs" />
     <Compile Include="Controllers\STOCKController.cs" />
     <Compile Include="Controllers\SUPPORTController.cs" />
@@ -232,18 +233,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HOME\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\CUSTOMERS\Edit.cshtml" />
-=======
-    <Content Include="Views\CUSTOMERS\Create.cshtml" />
-    <Content Include="Views\CUSTOMERS\Delete.cshtml" />
->>>>>>> 23b1fa9 ((Fix/Feat) finished delete and edit functionality in Customers)
     <Content Include="Views\CUSTOMERS\Index.cshtml" />
     <Content Include="Views\LOGIN\Login.cshtml" />
     <Content Include="Views\CUSTOMERS\Orders.cshtml" />
     <Content Include="Views\SW_REQUEST\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\LOGOUT\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -261,12 +259,8 @@
     <Content Include="Views\MANAGEMENT\Edit.cshtml" />
     <Content Include="Views\MANAGEMENT\Index.cshtml" />
     <Content Include="Views\CUSTOMERS\Details.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\STOCK\Index.cshtml" />
     <Content Include="Views\SUPPORT\Index.cshtml" />
-=======
-    <Content Include="Views\CUSTOMERS\Edit.cshtml" />
->>>>>>> 23b1fa9 ((Fix/Feat) finished delete and edit functionality in Customers)
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
