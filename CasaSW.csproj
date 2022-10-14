@@ -246,9 +246,9 @@
       <DependentUpon>ModelDAO.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Views\MANAGEMENT\Index.cshtml" />
     <Content Include="Views\MANAGEMENT\Create.cshtml" />
     <Content Include="Views\MANAGEMENT\Edit.cshtml" />
+    <Content Include="Views\MANAGEMENT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,12 +1,15 @@
 ﻿/*CUSTOMERS*/
 .form {
-    padding: 15rem 2rem 0 2rem;
+    padding: 18rem 2rem 0 2rem;
     color: var(--primary);
     text-transform: uppercase;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
     .form a {
@@ -30,10 +33,11 @@
     .tbl-header th {
         padding: 1rem 7rem;
     }
-.tbl-body{
-    overflow-y: scroll;
 
+.tbl-body {
+    overflow-y: scroll;
 }
+
 .tbl-body-content {
     background-color: var(--primary);
     color: var(--secundary);
@@ -54,39 +58,44 @@
     justify-content: space-evenly;
 }
 
-    .actions a:nth-child(1) {
-        color: var(--primary);
-        background-color: var(--secundary);
-        width: 8rem;
-        text-align: center;
+    .actions a {
+        cursor: pointer;
     }
 
-        .actions a:nth-child(1):hover {
-            background-color: #b3b3b3;
+        .actions a:nth-child(1) {
+            color: var(--primary);
+            background-color: var(--secundary);
+            width: 8rem;
+            text-align: center;
         }
 
-    .actions a:nth-child(2) {
-        color: var(--primary);
-        background-color: var(--dark);
-    }
+            .actions a:nth-child(1):hover {
+                background-color: #b3b3b3;
+            }
 
-        .actions a:nth-child(2):hover {
-            background-color: #35384d;
+        .actions a:nth-child(2) {
+            color: var(--primary);
+            background-color: var(--dark);
         }
 
-    .actions a:nth-child(3) {
-        color: var(--primary);
-        background-color: var(--cancel);
-    }
+            .actions a:nth-child(2):hover {
+                background-color: #35384d;
+            }
 
-        .actions a:nth-child(3):hover {
-            background-color: #E78E8E;
+        .actions a:nth-child(3) {
+            color: var(--primary);
+            background-color: var(--cancel);
         }
+
+            .actions a:nth-child(3):hover {
+                background-color: #E78E8E;
+            }
 /*END CUSTOMERS CSS*/
 /*GENERAL*/
 .guide {
     color: var(--secundary);
     float: left;
+    position: fixed;
 }
 
     .guide a {
@@ -97,6 +106,16 @@
             color: var(--secundary);
         }
 /*END GENERAL STYLES*/
+
+.crt-sac a{
+    background-color: var(--success);
+    padding: 1rem 2rem;
+}
+
+    .crt-sac a:hover {
+        background-color: #75a473;
+        color: var(--primary);
+    }
 /* Media Queries*/
 @media (min-width: 500px) {
 }

@@ -120,7 +120,7 @@ namespace CasaSW.Controllers
             ViewData["Mensaje"] = "Usuario ya existe";
             return View();
         }
-
+        [HttpPost]
         public ActionResult Edit(UserAdmin oUsuario)
         {
             if (oUsuario.Password != null && oUsuario.Password.Trim() != "" && oUsuario.ConfirmarPassword != null && oUsuario.ConfirmarPassword.Trim() != "")
