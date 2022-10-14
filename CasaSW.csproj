@@ -134,6 +134,7 @@
     <Compile Include="Controllers\CUSTOMERSController.cs" />
     <Compile Include="Controllers\MANAGEMENTController.cs" />
     <Compile Include="Controllers\STOCKController.cs" />
+    <Compile Include="Controllers\SUPPORTController.cs" />
     <Compile Include="Controllers\SW_REQUESTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +172,7 @@
     <Compile Include="Models\USER.cs">
       <DependentUpon>ModelDAO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\Mail.cs" />
     <Compile Include="Models\ViewModel\OrderProduct.cs" />
     <Compile Include="Models\ViewModel\CustomerPersona.cs" />
     <Compile Include="Models\ViewModel\RequestPOCP.cs" />
@@ -193,6 +195,7 @@
     <Content Include="Content\orders.css" />
     <Content Include="Content\stock.css" />
     <Content Include="Content\stylesheet.css" />
+    <Content Include="Content\support.css" />
     <Content Include="Content\swrequest.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -253,6 +256,7 @@
     <Content Include="Views\MANAGEMENT\Index.cshtml" />
     <Content Include="Views\CUSTOMERS\Details.cshtml" />
     <Content Include="Views\STOCK\Index.cshtml" />
+    <Content Include="Views\SUPPORT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

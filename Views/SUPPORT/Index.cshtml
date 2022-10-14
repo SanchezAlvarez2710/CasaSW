@@ -1,0 +1,42 @@
+﻿@model CasaSW.Models.Mail
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Guide = "Stock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/support.css" />
+
+<div class="centrar">
+    <fieldset>
+        <legend class="rec">Support</legend>
+        @using (Html.BeginForm("Index", "EmailConfig", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table>
+                <tr>
+                    <th class="letra">To :</th>
+                    <td>@Html.TextBoxFor(x => x.To)</td>
+                </tr>
+
+                <tr>
+                    <th class="letra">Subject :</th>
+                    <td>@Html.TextBoxFor(x => x.Subject)</td>
+                </tr>
+                <tr>
+
+                    <th class="letra">Body :</th>
+                    <td>@Html.TextAreaFor(x => x.Body, new { rows = "15", cols = "25" })</td>
+                </tr>
+                <tr>
+                    <td><br> </td>
+                </tr>
+            </table>
+            <input class="boton" id="bt" type="submit" value="Send" />
+
+            <br />
+            <span style="color:green;">@ViewBag.Message</span>
+        }
+
+    </fieldset>
+</div>

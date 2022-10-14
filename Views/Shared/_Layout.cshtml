@@ -53,7 +53,7 @@
                     switch (condicion)
                     {
                         case "sac":
-                            @Html.ActionLink("Support", "Index", "");
+                            @Html.ActionLink("Support", "Index", "SUPPORT");
                             break;
                         case "admin":
                             @Html.ActionLink("Management", "Index", "MANAGEMENT");
@@ -63,7 +63,7 @@
             </nav>
             <div class="user-icon">
                 <label for="btn-log-out">
-                    <p>@oUsuario.Username</p>
+                    @oUsuario.Username
                     @{
                         switch (oUsuario.avatar)
                         {

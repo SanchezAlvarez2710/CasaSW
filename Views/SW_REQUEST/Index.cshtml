@@ -11,7 +11,12 @@
 <p class="guide">
     You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Request", "Index", "SW_REQUEST")
 </p>
-<div class="form">
+<div class="form">  
+    <div class="search-customer">
+        <input type="text" placeholder="Identification"/>
+        @Html.ActionLink("Search", "", "", new { @class = "btn-search" })
+    </div>
+
     <div class="container">
         <form action="@Url.Action("Create", "SW_REQUEST")" method="post" class="form-request" id="form-request">
             @* CLIENT INFO *@

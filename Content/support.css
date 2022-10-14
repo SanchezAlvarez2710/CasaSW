@@ -1,0 +1,33 @@
+﻿.centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+}
+
+fieldset {
+    border: solid var(--primary) 3px;
+}
+
+legend {
+    height: 7rem;
+    width: 11rem;
+    margin-left: 50rem;
+    color: var(--primary);
+    font-size: medium;
+    padding: 0.6px;
+    margin: auto;
+    font-size: 30px;
+}
+
+.letra {
+    color: var(--primary);
+}
+
+.boton {
+    padding: 15px;
+    display: flex;
+    margin-left: 160px;
+    border-radius: 7px;
+}
