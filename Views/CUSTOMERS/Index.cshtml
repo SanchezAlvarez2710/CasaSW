@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="~/Content/customers.css" />
 <script src="~/Scripts/customers.js"></script>
+<script src="@Url.Content("~/scripts/jquery-1.4.4.js")" type="text/javascript"></script>
 
 <p class="guide">
     You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index")
@@ -45,8 +46,17 @@
                     <td class="actions">
                         @Html.ActionLink("Orders", "Orders", new { id = item.Id_ })
                         @*<a class="bt-details">Details</a>*@
+<<<<<<< HEAD
                         @Html.ActionLink("Details", "Details", new { id = item.Id_ }, new { @class = "bt-details" })
                         @Html.ActionLink("Edit", "Edit", new {id = item.Id_})
+=======
+                        @Ajax.ActionLink("Details", "Details", new { id = item.Id_ }, new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "modalDetails"
+                        }, new { @class = "bt-details" })                        
+                        @Html.ActionLink("Edit", "", new { id = item.Id_ })
+>>>>>>> 50ed286 ((fixed) finished  details orders customers view)
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id_ })
                     </td>
                 </tr>
@@ -54,4 +64,6 @@
         </tbody>
     </table>
 </div>
-<div style="display: none;" id="modalDetails"></div>
+<div style="display: none;" id="modalDetails">
+    @Html.Partial("Details")
+</div>

@@ -93,7 +93,7 @@ namespace CasaSW.Controllers
 
         // GET: CustomerPersona/Details/      
         [HttpGet]
-        public PartialViewResult Details(int? id)
+        public ActionResult Details(int? id)
         {
             var CustomerPersona = from p in db.PERSONA
                                   join u in db.USER on p.id_persona equals u.id_persona
@@ -110,7 +110,7 @@ namespace CasaSW.Controllers
                                       signUpDate_ = u.signUpDate,
                                       AdminFB_ = u.adminFB
                                   };
-            return PartialView(CustomerPersona);
+            return View(CustomerPersona);
         }
         
         

@@ -16,15 +16,13 @@
             <table>
                 <tr>
                     <th class="letra">To :</th>
-                    <td>@Html.TextBoxFor(x => x.To)</td>
+                    <td>@Html.TextBoxFor(x => x.To, new { required = string.Empty })</td>
                 </tr>
-
                 <tr>
                     <th class="letra">Subject :</th>
-                    <td>@Html.TextBoxFor(x => x.Subject)</td>
+                    <td>@Html.TextBoxFor(x => x.Subject, new { required = string.Empty })</td>
                 </tr>
                 <tr>
-
                     <th class="letra">Body :</th>
                     <td>@Html.TextAreaFor(x => x.Body, new { rows = "15", cols = "25" })</td>
                 </tr>
@@ -33,9 +31,8 @@
                 </tr>
             </table>
             <input class="boton" id="bt" type="submit" value="Send" />
-
             <br />
-            <span style="color:green;">@ViewBag.Message</span>
+            <span style="color:green; background-color: var(--succes);">@ViewBag.Message</span>
         }
 
     </fieldset>
