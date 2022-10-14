@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using CasaSW.Models.ViewModel;
 using CasaSW.Models;
-using System.Data.SqlClient;
 using System.Data;
+<<<<<<< HEAD
 using Microsoft.Ajax.Utilities;
 using System.Runtime.CompilerServices;
 using System.Data.Entity.Core;
+=======
+>>>>>>> test-bd
 
 namespace CasaSW.Controllers
 {

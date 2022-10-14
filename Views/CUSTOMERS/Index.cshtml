@@ -4,9 +4,11 @@
     ViewBag.Title = "Customers Management";
     ViewBag.Guide = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var model = Model;
 }
 
 <link rel="stylesheet" href="~/Content/customers.css" />
+<script src="~/Scripts/customers.js"></script>
 
 <p class="guide">
     You are at > @Html.ActionLink("Home", "Index", "HOME") > @Html.ActionLink("Customers", "Index")
@@ -42,7 +44,9 @@
                     </td>
                     <td class="actions">
                         @Html.ActionLink("Orders", "Orders", new { id = item.Id_ })
-                        @Html.ActionLink("Details", "Details", new { id = item.Id_ })
+                        @*<a class="bt-details">Details</a>*@
+                        @Html.ActionLink("Details", "Details", new { id = item.Id_ }, new { @class = "bt-details" })
+                        @Html.ActionLink("Edit", "", new {id = item.Id_})
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id_ })
                     </td>
                 </tr>
@@ -50,3 +54,4 @@
         </tbody>
     </table>
 </div>
+<div style="display: none;" id="modalDetails"></div>

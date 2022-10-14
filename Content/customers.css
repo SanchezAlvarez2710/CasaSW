@@ -30,10 +30,11 @@
     .tbl-header th {
         padding: 1rem 7rem;
     }
-.tbl-body{
-    overflow-y: scroll;
 
+.tbl-body {
+    overflow-y: scroll;
 }
+
 .tbl-body-content {
     background-color: var(--primary);
     color: var(--secundary);
@@ -53,9 +54,15 @@
     gap: 1rem;
     justify-content: space-evenly;
 }
-
-    .actions a:nth-child(1) {
+    .actions a {
         color: var(--primary);
+    }
+
+    .actions a:hover {
+        color: var(--primary);
+    }
+
+    .actions a:nth-child(1) {        
         background-color: var(--secundary);
         width: 8rem;
         text-align: center;
@@ -65,8 +72,7 @@
             background-color: #b3b3b3;
         }
 
-    .actions a:nth-child(2) {
-        color: var(--primary);
+    .actions a:nth-child(2) {             
         background-color: var(--dark);
     }
 
@@ -74,14 +80,23 @@
             background-color: #35384d;
         }
 
-    .actions a:nth-child(3) {
-        color: var(--primary);
-        background-color: var(--cancel);
-    }
-
-        .actions a:nth-child(3):hover {
-            background-color: #E78E8E;
+        .actions a:nth-child(4) {
+            background-color: var(--cancel);
         }
+
+            .actions a:nth-child(4):hover {
+                background-color: #E78E8E;
+            }
+
+        .actions a:nth-child(3) {
+            width: 8rem;
+            text-align: center;
+            background-color: var(--success);
+        }
+
+            .actions a:nth-child(3):hover {
+                background-color: #75a473;
+            }
 /*END CUSTOMERS CSS*/
 /*GENERAL*/
 .guide {
@@ -97,6 +112,7 @@
             color: var(--secundary);
         }
 /*END GENERAL STYLES*/
+
 /* Media Queries*/
 @media (min-width: 500px) {
 }
