@@ -10,7 +10,7 @@
     <p class="guide">
         You are at > <a href="/HOME/Index">Home</a> > <a href="/MANAGEMENT/Index">Management</a> > <a href="/MANAGEMENT/Create">Create SAC</a>
     </p>
-    <form action="@Url.Action("Edit","MANAGEMENT")" method="post" class="info-form">
+    <form action="@Url.Action("Create","MANAGEMENT")" method="post" class="info-form">
         <fieldset>
             <legend>New SAC</legend>
             <div class="info-sac">
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="info-sac-content">
-                    <input type="text" id="id" name="IdUsuario"placeholder="Identification">
+                    <input type="text" id="id" required name="IdUsuario" placeholder="Identification">
                     <input type="text" required id="name" name="name" placeholder="Name">
                     <input type="email" required id="email" name="email" placeholder="Email">
                     <input type="text" required id="username" name="Username" placeholder="Username">
@@ -37,7 +37,7 @@
                         @ViewData["Mensaje"]
                     </div>
                 }
-                <button type="submit" id="crea" class="edit">Edit SAC</button>
+                <button type="submit" id="crea" class="edit">Create SAC</button>
             </div>
         </fieldset>
     </form>
