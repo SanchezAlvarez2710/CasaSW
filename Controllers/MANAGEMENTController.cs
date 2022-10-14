@@ -123,17 +123,11 @@ namespace CasaSW.Controllers
         [HttpPost]
         public ActionResult Edit(UserAdmin oUsuario)
         {
-            if (oUsuario.Password != null && oUsuario.Password.Trim() != "" && oUsuario.ConfirmarPassword != null && oUsuario.ConfirmarPassword.Trim() != "")
+            if (oUsuario.Password != null && oUsuario.Password.Trim() != "")
             {
-                if (oUsuario.Password == oUsuario.ConfirmarPassword)
-                {
+               
                     oUsuario.Password = ConvertirSha256(oUsuario.Password);
-                }
-                else
-                {
-                    ViewData["Mensaje"] = "Las contraseñas no coinciden";
-                    return View();
-                }
+                
             }
   
             var oUser = db.PERSONA.Find(oUsuario.IdUsuario);

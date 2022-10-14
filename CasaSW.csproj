@@ -185,6 +185,7 @@
     <Content Include="App_Data\CASASW_log.ldf">
       <DependentUpon>CASASW.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\registersac.css" />
     <Content Include="Content\register.css" />
     <Content Include="Content\management.css" />
     <Content Include="Content\customersdetails.css" />
@@ -231,7 +232,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HOME\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\CUSTOMERS\Edit.cshtml" />
+=======
+    <Content Include="Views\CUSTOMERS\Create.cshtml" />
+    <Content Include="Views\CUSTOMERS\Delete.cshtml" />
+>>>>>>> 23b1fa9 ((Fix/Feat) finished delete and edit functionality in Customers)
     <Content Include="Views\CUSTOMERS\Index.cshtml" />
     <Content Include="Views\LOGIN\Login.cshtml" />
     <Content Include="Views\CUSTOMERS\Orders.cshtml" />
@@ -255,8 +261,12 @@
     <Content Include="Views\MANAGEMENT\Edit.cshtml" />
     <Content Include="Views\MANAGEMENT\Index.cshtml" />
     <Content Include="Views\CUSTOMERS\Details.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\STOCK\Index.cshtml" />
     <Content Include="Views\SUPPORT\Index.cshtml" />
+=======
+    <Content Include="Views\CUSTOMERS\Edit.cshtml" />
+>>>>>>> 23b1fa9 ((Fix/Feat) finished delete and edit functionality in Customers)
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

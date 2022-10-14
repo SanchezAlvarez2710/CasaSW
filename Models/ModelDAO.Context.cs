@@ -24,7 +24,9 @@ namespace CasaSW.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        
+
         public virtual DbSet<ADMIN> ADMIN { get; set; }
         public virtual DbSet<ORDER> ORDER { get; set; }
         public virtual DbSet<PERSONA> PERSONA { get; set; }

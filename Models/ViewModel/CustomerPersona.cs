@@ -17,5 +17,7 @@ namespace CasaSW.Models.ViewModel
         public DateTime signUpDate_ { get; set; }
         public string AdminFB_ { get; set; }
 
+        public string ConfirmPassword { get; set; }
+
     }
 }

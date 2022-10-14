@@ -8,7 +8,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="~/Content/register.css" />
+<link rel="stylesheet" href="~/Content/registersac.css" />
 
 <div class="form">
     <p class="guide">
@@ -28,12 +28,16 @@
                     </select>
                 </div>
                 <div class="info-sac-content">
+                    <label for="id">Identification</label>
                     <input type="text" readonly id="id" name="IdUsuario" value="@oUsuario.IdUsuario">
+                    <label for="name">Name</label>
                     <input type="text" required id="name" name="name" value="@oUsuario.name" placeholder="Name">
+                    <label for="email">Email</label>
                     <input type="email" required id="email" name="email" value="@oUsuario.email" placeholder="Email">
+                    <label for="username">Username</label>
                     <input type="text" required id="username" name="Username" value="@oUsuario.Username" placeholder="Username">
-                    <input type="password" id="password" name="Password" placeholder="Password">
-                    <input type="password" id="confirmpassword" name="ConfirmarPassword" placeholder="Confirm password">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="Password" placeholder="Fill only if you want to edit">
                 </div>
                 @if (ViewData["Mensaje"] != null)
                 {
