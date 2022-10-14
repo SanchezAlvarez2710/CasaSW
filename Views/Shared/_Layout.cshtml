@@ -1,7 +1,7 @@
-﻿@{ 
-CasaSW.Models.ViewModel.UserAdmin oUsuario;
-oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
-var condicion = oUsuario.Rol.ToLower();
+﻿@{
+    CasaSW.Models.ViewModel.UserAdmin oUsuario;
+    oUsuario = (CasaSW.Models.ViewModel.UserAdmin)HttpContext.Current.Session["usuario"];
+    var condicion = oUsuario.Rol.ToLower();
 }
 
 <!DOCTYPE html>
@@ -49,8 +49,7 @@ var condicion = oUsuario.Rol.ToLower();
                     @Html.ActionLink("Home", "Index", "HOME");
                     @Html.ActionLink("Request", "Index", "SW_REQUEST");
                     @Html.ActionLink("Customers", "Index", "CUSTOMERS");
-
-                    @Html.ActionLink("Stock", "Stock", "HOME");                    
+                    @Html.ActionLink("Stock", "Index", "STOCK");
                     switch (condicion)
                     {
                         case "sac":
@@ -63,18 +62,36 @@ var condicion = oUsuario.Rol.ToLower();
                 }
             </nav>
             <div class="user-icon">
-                <div>
+                <label for="btn-log-out">
                     <p>@oUsuario.Username</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="56"
-                         height="56" viewBox="0 0 24 24" stroke-width="1.5" stroke="#bbbbbb" fill="none"
-                         stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <circle cx="12" cy="12" r="9" />
-                        <circle cx="12" cy="10" r="3" />
-                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-                    </svg>
-                </div>
+                    @{
+                        switch (oUsuario.avatar)
+                        {
+                            case "1":
+                                <img src="~/img/avatar1.png" style="width: 45px; height: 45px; "/>
+                                break;
+                            case "2":
+                                <img src="~/img/avatar2.png" style="width: 45px; height: 45px; " />
+                                break;
+                            case "3":
+                                <img src="~/img/avatar3.png" style="width: 45px; height: 45px; "/>
+                                break;
+                            case "4":
+                                <img src="~/img/avatar4.png" style="width: 45px; height: 45px; "/>
+                                break;
+                        }
+                    }
+                </label>
             </div>
+        </div>
+    </div>
+    <input type="checkbox" id="btn-log-out" />
+    <div class="log-out">
+        <div class="arrow-up">
+
+        </div>
+        <div class="log-out-content">
+            @Html.ActionLink("Log Out", "", "")
         </div>
     </div>
     <div>

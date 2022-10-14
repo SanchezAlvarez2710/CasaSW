@@ -133,6 +133,7 @@
     <Compile Include="Controllers\HOMEController.cs" />
     <Compile Include="Controllers\CUSTOMERSController.cs" />
     <Compile Include="Controllers\MANAGEMENTController.cs" />
+    <Compile Include="Controllers\STOCKController.cs" />
     <Compile Include="Controllers\SW_REQUESTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,11 +191,16 @@
     <Content Include="Content\customers.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\orders.css" />
+    <Content Include="Content\stock.css" />
     <Content Include="Content\stylesheet.css" />
     <Content Include="Content\swrequest.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\avatar1.png" />
+    <Content Include="img\avatar2.png" />
+    <Content Include="img\avatar3.png" />
+    <Content Include="img\avatar4.png" />
     <Content Include="img\bg-main.jpg" />
     <Content Include="img\pc.jpg" />
     <Content Include="Models\ModelDAO.Context.tt">
@@ -222,16 +228,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\HOME\Index.cshtml" />
-    <Content Include="Views\CUSTOMERS\Create.cshtml" />
-    <Content Include="Views\CUSTOMERS\Delete.cshtml" />
     <Content Include="Views\CUSTOMERS\Edit.cshtml" />
     <Content Include="Views\CUSTOMERS\Index.cshtml" />
     <Content Include="Views\LOGIN\Login.cshtml" />
     <Content Include="Views\CUSTOMERS\Orders.cshtml" />
-    <Content Include="Views\SW_REQUEST\Create.cshtml" />
-    <Content Include="Views\SW_REQUEST\Delete.cshtml" />
-    <Content Include="Views\SW_REQUEST\Details.cshtml" />
-    <Content Include="Views\SW_REQUEST\Edit.cshtml" />
     <Content Include="Views\SW_REQUEST\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
@@ -252,6 +252,7 @@
     <Content Include="Views\MANAGEMENT\Edit.cshtml" />
     <Content Include="Views\MANAGEMENT\Index.cshtml" />
     <Content Include="Views\CUSTOMERS\Details.cshtml" />
+    <Content Include="Views\STOCK\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

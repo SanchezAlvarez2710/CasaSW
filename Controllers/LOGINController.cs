@@ -26,8 +26,7 @@ namespace CasaSW.Controllers
         [HttpPost]
         public ActionResult Login(UserAdmin oUsuario)
         {
-            oUsuario.Password = ConvertirSha256(oUsuario.Password);
-         
+            oUsuario.Password = ConvertirSha256(oUsuario.Password);            
             IEnumerable<CasaSW.Models.ViewModel.UserAdmin> acceso = from o in db.PERSONA
                          join p in db.ADMIN on o.id_persona equals p.id_persona
                          where o.username == oUsuario.Username && o.password == oUsuario.Password 
@@ -36,7 +35,8 @@ namespace CasaSW.Controllers
                              IdUsuario = (int)p.id_persona,
                              Username = o.username,
                              Password = o.password,
-                             Rol = p.rol
+                             Rol = p.rol,
+                             avatar = p.avatar                            
                          };
 
             //try
@@ -53,6 +53,7 @@ namespace CasaSW.Controllers
                
                 var condicion = acceso.ElementAt(0).Rol.ToLower();
                 oUsuario.Rol = condicion;
+                oUsuario.avatar = acceso.ElementAt(0).avatar;
                 Session["usuario"] = oUsuario;
                 return RedirectToAction("Index", "HOME");
                 

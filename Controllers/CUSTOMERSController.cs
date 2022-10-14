@@ -50,6 +50,7 @@ namespace CasaSW.Controllers
                                    id_persona_ = (int)p.id_persona,
                                    username_persona = pERSONA.username,                                   
                                    orderName_ = o.orderName,
+                                   orderDate = o.orderDate,
                                    state_ = o.state,
                                    subtotal_ = o.subtotal,
                                    total_ = o.total,

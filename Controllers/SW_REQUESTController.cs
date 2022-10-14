@@ -11,6 +11,7 @@ using CasaSW.Models.ViewModel;
 using CasaSW.Permisos;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.Entity.Validation;
 
 namespace CasaSW.Controllers
 {
@@ -88,7 +89,7 @@ namespace CasaSW.Controllers
                     uSER.id_persona = requestPOCP.id_persona;
                     uSER.denied = 0;
                     uSER.phoneN = requestPOCP.PhoneN_;
-                    uSER.signUpDate = requestPOCP.signUpDate_;
+                    uSER.signUpDate = DateTime.Now;
                     uSER.adminFB = requestPOCP.AdminFB_;
                 //SW_REQUEST
                     SW_REQUEST sW_REQUEST = new SW_REQUEST();
@@ -107,6 +108,7 @@ namespace CasaSW.Controllers
                     oRDER.id_product = requestPOCP.id_product_;
                     oRDER.id_persona = requestPOCP.id_persona;
                     oRDER.orderName = requestPOCP.product_name + " Order";
+                    oRDER.orderDate = DateTime.Now;
                     oRDER.state = "IN PROCESS";
                     oRDER.subtotal = 0.00;
                     oRDER.total = 0.00;
@@ -116,8 +118,16 @@ namespace CasaSW.Controllers
             db.PRODUCT.Add(pRODUCT);
             db.ORDER.Add(oRDER);
             db.SW_REQUEST.Add(sW_REQUEST);
-            //SAVE CHANGES TO DB
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+            }
+            
+            //SAVE CHANGES TO DB            
         //}            
 
             return RedirectToAction("Index", "HOME");

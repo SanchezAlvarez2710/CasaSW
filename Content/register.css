@@ -71,10 +71,10 @@ legend {
         border-radius: 5px;
     }
 
-img {
+/*img {
     border-radius: 50%;
     border: 2px solid;
-}
+}*/
 
 .info-sac {
     display: flex;

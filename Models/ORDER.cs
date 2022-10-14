@@ -17,6 +17,7 @@ namespace CasaSW.Models
         public int id_product { get; set; }
         public int id_persona { get; set; }
         public string orderName { get; set; }
+        public System.DateTime orderDate { get; set; }
         public string state { get; set; }
         public double subtotal { get; set; }
         public double total { get; set; }

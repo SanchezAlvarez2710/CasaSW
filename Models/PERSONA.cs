@@ -34,10 +34,5 @@ namespace CasaSW.Models
         public virtual ICollection<PRODUCT> PRODUCT { get; set; }
         public virtual SW_REQUEST SW_REQUEST { get; set; }
         public virtual USER USER { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SW_REQUEST> sW_REQUEST { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<USER> uSER { get; set; }
     }
 }

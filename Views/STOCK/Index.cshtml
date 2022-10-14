@@ -1,0 +1,79 @@
+﻿
+@model IEnumerable<CasaSW.Models.ViewModel.OrderProduct>
+
+@{
+    ViewBag.Title = "Stock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Guide = "Stock";
+    var model = Model;
+}
+
+<link rel="stylesheet" href="~/Content/stock.css" />
+
+
+
+<div class="container">
+    <div class="order-header">
+        @{
+            if (model.Any())
+            {
+                <p>
+                    Stock at @DateTime.Now
+                </p>
+                <p>
+                    @Html.ActionLink("View Report", "", "", new { @class = "btn-report" })
+                </p>
+            }
+        }
+    </div>
+    <div class="order-body">
+        @{
+            foreach (var item in Model)
+            {
+                CasaSW.Models.CASASWEntities db = new CasaSW.Models.CASASWEntities();
+                CasaSW.Models.PERSONA pERSONA = db.PERSONA.Find(item.id_persona_);
+                item.username_persona = pERSONA.username;
+                <div class="order-section">
+                            <div class="order-info">
+                                <p>
+                                    <b>Order name: @Html.DisplayFor(modelItem => item.orderName_)</b>
+                                </p>
+                                <p>
+                                    <b>Order state: @Html.DisplayFor(modelItem => item.state_)</b>
+                                </p>
+                                <p>
+                                    <b>Associated customer: @Html.DisplayFor(modelItem => item.username_persona)</b>
+                                </p>
+                                <p>
+                                    <b>Order date: @Html.DisplayFor(modelItem => item.orderDate)</b>
+                                </p>
+                                <div class="product-section">
+                                    <p>
+                                        <b>Product Info</b>
+                                    </p>
+                                    <div class="product-section-info">
+                                        @* HEADER *@
+                                        <p><b>Id</b></p>
+                                        <p><b>Name</b></p>
+                                        <p><b>Type</b></p>
+                                        <p><b>Version</b></p>
+                                        @* BODY *@
+                                        <p>@Html.DisplayFor(modelItem => item.id_product_)</p>
+                                        <p>@Html.DisplayFor(modelItem => item.product_name)</p>
+                                        <p>@Html.DisplayFor(modelItem => item.product_type)</p>
+                                        <p>@Html.DisplayFor(modelItem => item.product_version)</p>
+                                        <div class="product-section-desc">
+                                            <p><b>Description</b></p>
+                                            <p> @Html.DisplayFor(modelItem => item.product_description)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <hr />
+            }
+        }
+    </div>
+</div>
+
+

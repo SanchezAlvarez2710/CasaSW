@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="477aa5749ab0450d8b1ffa62f1668392" Name="Diagram1">
-        <EntityTypeShape EntityType="CASASWModel.ADMIN" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.ORDER" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.PERSONA" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.PRODUCT" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.SW_REQUEST" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CASASWModel.USER" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+      <Diagram DiagramId="2d0f91ae4b2844e7986990fa835a29ee" Name="Diagram1">
+        <EntityTypeShape EntityType="CASASWModel.ADMIN" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.ORDER" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.PERSONA" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.PRODUCT" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.SW_REQUEST" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CASASWModel.USER" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
         <AssociationConnector Association="CASASWModel.fk_persona_admin_id" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_persona_order" ManuallyRouted="false" />
         <AssociationConnector Association="CASASWModel.fk_product_order" ManuallyRouted="false" />

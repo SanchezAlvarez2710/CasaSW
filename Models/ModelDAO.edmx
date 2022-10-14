@@ -12,7 +12,7 @@
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="state" Type="int" Nullable="false" />
-          <Property Name="avatar" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="avatar" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -21,6 +21,7 @@
           <Property Name="id_product" Type="int" Nullable="false" />
           <Property Name="id_persona" Type="int" Nullable="false" />
           <Property Name="orderName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="orderDate" Type="date" Nullable="false" />
           <Property Name="state" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="subtotal" Type="float" Nullable="false" />
           <Property Name="total" Type="float" Nullable="false" />
@@ -179,7 +180,7 @@
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="state" Type="Int32" Nullable="false" />
-          <Property Name="avatar" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="avatar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PERSONA" Relationship="Self.fk_persona_admin_id" FromRole="ADMIN" ToRole="PERSONA" />
         </EntityType>
         <EntityType Name="ORDER">
@@ -189,6 +190,7 @@
           <Property Name="id_product" Type="Int32" Nullable="false" />
           <Property Name="id_persona" Type="Int32" Nullable="false" />
           <Property Name="orderName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="subtotal" Type="Double" Nullable="false" />
           <Property Name="total" Type="Double" Nullable="false" />
@@ -368,6 +370,7 @@
                 <ScalarProperty Name="id_product" ColumnName="id_product" />
                 <ScalarProperty Name="id_persona" ColumnName="id_persona" />
                 <ScalarProperty Name="orderName" ColumnName="orderName" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
                 <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="subtotal" ColumnName="subtotal" />
                 <ScalarProperty Name="total" ColumnName="total" />
