@@ -46,17 +46,15 @@
                     <td class="actions">
                         @Html.ActionLink("Orders", "Orders", new { id = item.Id_ })
                         @*<a class="bt-details">Details</a>*@
-<<<<<<< HEAD
                         @Html.ActionLink("Details", "Details", new { id = item.Id_ }, new { @class = "bt-details" })
                         @Html.ActionLink("Edit", "Edit", new {id = item.Id_})
-=======
+
                         @Ajax.ActionLink("Details", "Details", new { id = item.Id_ }, new AjaxOptions
                         {
                             InsertionMode = InsertionMode.Replace,
                             UpdateTargetId = "modalDetails"
                         }, new { @class = "bt-details" })                        
                         @Html.ActionLink("Edit", "", new { id = item.Id_ })
->>>>>>> 50ed286 ((fixed) finished  details orders customers view)
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id_ })
                     </td>
                 </tr>
